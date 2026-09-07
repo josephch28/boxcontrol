@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812" font-family="Manrope, sans-serif">
+  <rect width="375" height="812" fill="#0B0B0D"/>
+
+  <!-- Status bar -->
+  <text x="32" y="30" font-family="JetBrains Mono, monospace" font-size="12" fill="#F5EFE0" font-weight="600">9:41</text>
+  <g transform="translate(310, 22)" fill="#F5EFE0">
+    <rect x="0" y="6" width="2" height="4"/><rect x="4" y="4" width="2" height="6"/><rect x="8" y="2" width="2" height="8"/><rect x="12" y="0" width="2" height="10"/>
+    <rect x="20" y="2" width="14" height="6" fill="none" stroke="#F5EFE0"/><rect x="22" y="4" width="8" height="2"/>
+  </g>
+
+  <!-- Section head -->
+  <text x="24" y="82" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0">RUTINAS <tspan fill="#E8B84A">·</tspan></text>
+  <text x="351" y="82" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#E8B84A" text-anchor="end">FILTRAR →</text>
+
+  <!-- Featured routine -->
+  <rect x="20" y="104" width="335" height="220" fill="#151519" stroke="#A6822D"/>
+  <text x="36" y="130" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#E8B84A">SESIÓN DE HOY · INTERMEDIO</text>
+  <circle cx="330" cy="126" r="12" fill="none" stroke="#E8B84A" stroke-width="1.5"/>
+  <path d="M326 120 L336 126 L326 132 Z" fill="#E8B84A"/>
+
+  <text x="36" y="170" font-family="Bebas Neue, sans-serif" font-size="26" letter-spacing="1.5" fill="#F5EFE0">SHADOW BOX</text>
+  <text x="36" y="196" font-family="Bebas Neue, sans-serif" font-size="26" letter-spacing="1.5" fill="#F5EFE0">+ CONDICIONAMIENTO</text>
+
+  <text x="36" y="228" font-family="Manrope, sans-serif" font-size="12" fill="#82828A">5 rondas de shadow, trabajo de piernas y</text>
+  <text x="36" y="246" font-family="Manrope, sans-serif" font-size="12" fill="#82828A">core. Ideal antes de sparring ligero.</text>
+
+  <line x1="36" y1="272" x2="339" y2="272" stroke="#2A2A31"/>
+  <text x="36" y="296" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">45</tspan> MIN</text>
+  <text x="140" y="296" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">7</tspan> BLOQUES</text>
+  <text x="256" y="296" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">380</tspan> KCAL</text>
+
+  <!-- Section: MÁS DE LA SEMANA -->
+  <text x="24" y="366" font-family="Bebas Neue, sans-serif" font-size="16" letter-spacing="2.5" fill="#F5EFE0">MÁS DE LA SEMANA</text>
+
+  <!-- Card 2: GUARDIA Y JAB -->
+  <rect x="20" y="384" width="335" height="112" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="36" y="410" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#E8B84A">FUERZA · PRINCIPIANTE</text>
+  <text x="36" y="440" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="1.5" fill="#F5EFE0">GUARDIA Y JAB</text>
+  <line x1="36" y1="460" x2="339" y2="460" stroke="#2A2A31"/>
+  <text x="36" y="482" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">30</tspan> MIN</text>
+  <text x="140" y="482" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">4</tspan> BLOQUES</text>
+  <text x="256" y="482" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A">REV. <tspan fill="#E8B84A">IA</tspan></text>
+
+  <!-- Card 3: RECARGA POST -->
+  <rect x="20" y="512" width="335" height="112" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="36" y="538" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#E8B84A">ALIMENTACIÓN</text>
+  <text x="36" y="568" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="1.5" fill="#F5EFE0">RECARGA POST-ENTRENO</text>
+  <line x1="36" y1="588" x2="339" y2="588" stroke="#2A2A31"/>
+  <text x="36" y="610" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">3</tspan> COMIDAS</text>
+  <text x="140" y="610" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">2,200</tspan> KCAL</text>
+  <text x="256" y="610" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A">REV. <tspan fill="#E8B84A">IA</tspan></text>
+
+  <!-- Tab bar -->
+  <rect x="0" y="720" width="375" height="92" fill="#0A0A0C"/>
+  <line x1="0" y1="720" x2="375" y2="720" stroke="#2A2A31"/>
+  <g stroke="#82828A" stroke-width="1.7" fill="none">
+    <rect x="42" y="738" width="8" height="8"/><rect x="54" y="738" width="8" height="8"/><rect x="42" y="750" width="8" height="8"/><rect x="54" y="750" width="8" height="8"/>
+  </g>
+  <text x="52" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">CARNET</text>
+  <path d="M132 758 L132 748 L142 741 L152 748 L152 758 M139 758 L139 752 L145 752 L145 758" stroke="#E8B84A" stroke-width="1.7" fill="none"/>
+  <text x="142" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#E8B84A" text-anchor="middle">RUTINAS</text>
+  <circle cx="234" cy="748" r="8" fill="none" stroke="#82828A" stroke-width="1.7"/>
+  <path d="M234 744 L234 748 L237 750" stroke="#82828A" stroke-width="1.7" fill="none"/>
+  <text x="234" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">HISTORIAL</text>
+  <circle cx="326" cy="745" r="3" fill="none" stroke="#82828A" stroke-width="1.7"/>
+  <path d="M320 758 a6 6 0 0 1 12 0" fill="none" stroke="#82828A" stroke-width="1.7"/>
+  <text x="326" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">PERFIL</text>
+</svg>

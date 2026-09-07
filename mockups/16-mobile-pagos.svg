@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812" font-family="Manrope, sans-serif">
+  <rect width="375" height="812" fill="#0B0B0D"/>
+
+  <text x="32" y="30" font-family="JetBrains Mono, monospace" font-size="12" fill="#F5EFE0" font-weight="600">9:41</text>
+  <g transform="translate(310, 22)" fill="#F5EFE0">
+    <rect x="0" y="6" width="2" height="4"/><rect x="4" y="4" width="2" height="6"/><rect x="8" y="2" width="2" height="8"/><rect x="12" y="0" width="2" height="10"/>
+    <rect x="20" y="2" width="14" height="6" fill="none" stroke="#F5EFE0"/><rect x="22" y="4" width="8" height="2"/>
+  </g>
+
+  <text x="24" y="82" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0">MIS PAGOS</text>
+  <text x="351" y="82" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#E8B84A" text-anchor="end">2026 ▾</text>
+
+  <!-- Big stat -->
+  <rect x="20" y="104" width="335" height="130" fill="#151519" stroke="#A6822D"/>
+  <text x="36" y="130" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">TOTAL INVERTIDO · 2026</text>
+  <text x="36" y="190" font-family="Bebas Neue, sans-serif" font-size="60" letter-spacing="2" fill="#E8B84A">$360</text>
+  <text x="216" y="190" font-family="JetBrains Mono, monospace" font-size="11" fill="#82828A" letter-spacing="1">USD</text>
+  <text x="36" y="216" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">12 PAGOS</text>
+  <text x="339" y="216" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="end">ÚLT: 08·SEP</text>
+
+  <text x="24" y="266" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— HISTORIAL</text>
+
+  <!-- Payment rows -->
+  <text x="24" y="304" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">08</text>
+  <text x="24" y="320" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">SEP</text>
+  <text x="76" y="304" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Mensualidad</text>
+  <text x="76" y="320" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">EFECTIVO · NORTE</text>
+  <text x="351" y="316" font-family="Bebas Neue, sans-serif" font-size="18" fill="#E8B84A" text-anchor="end" letter-spacing="1">$30</text>
+  <line x1="24" y1="340" x2="351" y2="340" stroke="#2A2A31"/>
+
+  <text x="24" y="368" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">05</text>
+  <text x="24" y="384" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">AGO</text>
+  <text x="76" y="368" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Mensualidad</text>
+  <text x="76" y="384" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">TRANSF. · PICHINCHA</text>
+  <text x="351" y="380" font-family="Bebas Neue, sans-serif" font-size="18" fill="#F5EFE0" text-anchor="end" letter-spacing="1">$30</text>
+  <line x1="24" y1="404" x2="351" y2="404" stroke="#2A2A31"/>
+
+  <text x="24" y="432" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">06</text>
+  <text x="24" y="448" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">JUL</text>
+  <text x="76" y="432" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Mensualidad</text>
+  <text x="76" y="448" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">EFECTIVO · NORTE</text>
+  <text x="351" y="444" font-family="Bebas Neue, sans-serif" font-size="18" fill="#F5EFE0" text-anchor="end" letter-spacing="1">$30</text>
+  <line x1="24" y1="468" x2="351" y2="468" stroke="#2A2A31"/>
+
+  <text x="24" y="496" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">04</text>
+  <text x="24" y="512" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">JUN</text>
+  <text x="76" y="496" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Mensualidad</text>
+  <text x="76" y="512" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">EFECTIVO · SUR</text>
+  <text x="351" y="508" font-family="Bebas Neue, sans-serif" font-size="18" fill="#F5EFE0" text-anchor="end" letter-spacing="1">$30</text>
+  <line x1="24" y1="532" x2="351" y2="532" stroke="#2A2A31"/>
+
+  <text x="24" y="560" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">02</text>
+  <text x="24" y="576" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">ABR</text>
+  <text x="76" y="560" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Trimestral</text>
+  <text x="76" y="576" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">EFECTIVO · NORTE</text>
+  <text x="351" y="572" font-family="Bebas Neue, sans-serif" font-size="18" fill="#F5EFE0" text-anchor="end" letter-spacing="1">$80</text>
+
+  <!-- Download button -->
+  <rect x="20" y="620" width="335" height="42" fill="none" stroke="#A6822D"/>
+  <text x="188" y="647" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">↓ DESCARGAR ESTADO DE CUENTA</text>
+
+  <!-- Tab bar -->
+  <rect x="0" y="720" width="375" height="92" fill="#0A0A0C"/>
+  <line x1="0" y1="720" x2="375" y2="720" stroke="#2A2A31"/>
+  <g stroke="#82828A" stroke-width="1.7" fill="none">
+    <rect x="42" y="738" width="8" height="8"/><rect x="54" y="738" width="8" height="8"/><rect x="42" y="750" width="8" height="8"/><rect x="54" y="750" width="8" height="8"/>
+  </g>
+  <text x="52" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">CARNET</text>
+  <path d="M132 758 L132 748 L142 741 L152 748 L152 758 M139 758 L139 752 L145 752 L145 758" stroke="#82828A" stroke-width="1.7" fill="none"/>
+  <text x="142" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">RUTINAS</text>
+  <circle cx="234" cy="748" r="8" fill="none" stroke="#82828A" stroke-width="1.7"/>
+  <path d="M234 744 L234 748 L237 750" stroke="#82828A" stroke-width="1.7" fill="none"/>
+  <text x="234" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">HISTORIAL</text>
+  <circle cx="326" cy="745" r="3" fill="none" stroke="#E8B84A" stroke-width="1.7"/>
+  <path d="M320 758 a6 6 0 0 1 12 0" fill="none" stroke="#E8B84A" stroke-width="1.7"/>
+  <text x="326" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#E8B84A" text-anchor="middle">PERFIL</text>
+</svg>

@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812" font-family="Manrope, sans-serif">
+  <rect width="375" height="812" fill="#0B0B0D"/>
+
+  <text x="32" y="30" font-family="JetBrains Mono, monospace" font-size="12" fill="#F5EFE0" font-weight="600">9:41</text>
+  <g transform="translate(310, 22)" fill="#F5EFE0">
+    <rect x="0" y="6" width="2" height="4"/><rect x="4" y="4" width="2" height="6"/><rect x="8" y="2" width="2" height="8"/><rect x="12" y="0" width="2" height="10"/>
+    <rect x="20" y="2" width="14" height="6" fill="none" stroke="#F5EFE0"/><rect x="22" y="4" width="8" height="2"/>
+  </g>
+
+  <text x="24" y="82" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0">HISTORIAL</text>
+  <text x="351" y="82" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#E8B84A" text-anchor="end">SEPT 26 ▾</text>
+
+  <!-- Big stat -->
+  <rect x="20" y="104" width="335" height="140" fill="#151519" stroke="#A6822D"/>
+  <text x="36" y="130" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">ASISTENCIAS · MES</text>
+  <text x="36" y="192" font-family="Bebas Neue, sans-serif" font-size="68" letter-spacing="2" fill="#E8B84A">14</text>
+  <text x="132" y="192" font-family="JetBrains Mono, monospace" font-size="12" fill="#82828A" letter-spacing="1">/ 20 META</text>
+  <!-- Progress bar -->
+  <rect x="36" y="210" width="303" height="3" fill="#2A2A31"/>
+  <rect x="36" y="210" width="212" height="3" fill="#E8B84A"/>
+  <text x="36" y="232" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">70% CUMPLIDO</text>
+  <text x="339" y="232" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="end">6 RESTANTES</text>
+
+  <!-- Section label -->
+  <text x="24" y="278" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— RECIENTES</text>
+
+  <!-- Row 1 -->
+  <text x="24" y="316" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">06</text>
+  <text x="24" y="332" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">SEP</text>
+  <text x="76" y="316" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Ingreso registrado</text>
+  <text x="76" y="332" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">SEDE NORTE · RECEPCIÓN</text>
+  <text x="351" y="322" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0" letter-spacing="1" text-anchor="end">18:42</text>
+  <line x1="24" y1="352" x2="351" y2="352" stroke="#2A2A31"/>
+
+  <!-- Row 2 -->
+  <text x="24" y="380" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">04</text>
+  <text x="24" y="396" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">SEP</text>
+  <text x="76" y="380" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Ingreso registrado</text>
+  <text x="76" y="396" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">SEDE NORTE · QR</text>
+  <text x="351" y="386" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0" letter-spacing="1" text-anchor="end">19:15</text>
+  <line x1="24" y1="416" x2="351" y2="416" stroke="#2A2A31"/>
+
+  <!-- Row 3 -->
+  <text x="24" y="444" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">02</text>
+  <text x="24" y="460" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">SEP</text>
+  <text x="76" y="444" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Ingreso registrado</text>
+  <text x="76" y="460" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">SEDE SUR · QR</text>
+  <text x="351" y="450" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0" letter-spacing="1" text-anchor="end">17:30</text>
+  <line x1="24" y1="480" x2="351" y2="480" stroke="#2A2A31"/>
+
+  <!-- Row 4 (pago) -->
+  <text x="24" y="508" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">01</text>
+  <text x="24" y="524" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">SEP</text>
+  <text x="76" y="508" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Pago mensualidad</text>
+  <text x="76" y="524" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">$30 · EFECTIVO · NORTE</text>
+  <text x="351" y="516" font-family="JetBrains Mono, monospace" font-size="12" fill="#E8B84A" text-anchor="end" font-weight="700">$30</text>
+  <line x1="24" y1="544" x2="351" y2="544" stroke="#2A2A31"/>
+
+  <!-- Row 5 -->
+  <text x="24" y="572" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">30</text>
+  <text x="24" y="588" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1.5">AGO</text>
+  <text x="76" y="572" font-family="Manrope, sans-serif" font-size="13" font-weight="600" fill="#F5EFE0">Ingreso registrado</text>
+  <text x="76" y="588" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">SEDE NORTE · QR</text>
+  <text x="351" y="580" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0" letter-spacing="1" text-anchor="end">18:05</text>
+
+  <!-- Tab bar -->
+  <rect x="0" y="720" width="375" height="92" fill="#0A0A0C"/>
+  <line x1="0" y1="720" x2="375" y2="720" stroke="#2A2A31"/>
+  <g stroke="#82828A" stroke-width="1.7" fill="none">
+    <rect x="42" y="738" width="8" height="8"/><rect x="54" y="738" width="8" height="8"/><rect x="42" y="750" width="8" height="8"/><rect x="54" y="750" width="8" height="8"/>
+  </g>
+  <text x="52" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">CARNET</text>
+  <path d="M132 758 L132 748 L142 741 L152 748 L152 758 M139 758 L139 752 L145 752 L145 758" stroke="#82828A" stroke-width="1.7" fill="none"/>
+  <text x="142" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">RUTINAS</text>
+  <circle cx="234" cy="748" r="8" fill="none" stroke="#E8B84A" stroke-width="1.7"/>
+  <path d="M234 744 L234 748 L237 750" stroke="#E8B84A" stroke-width="1.7" fill="none"/>
+  <text x="234" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#E8B84A" text-anchor="middle">HISTORIAL</text>
+  <circle cx="326" cy="745" r="3" fill="none" stroke="#82828A" stroke-width="1.7"/>
+  <path d="M320 758 a6 6 0 0 1 12 0" fill="none" stroke="#82828A" stroke-width="1.7"/>
+  <text x="326" y="782" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A" text-anchor="middle">PERFIL</text>
+</svg>

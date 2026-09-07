@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="Manrope, sans-serif">
+  <!-- Dimmed backdrop -->
+  <rect width="1440" height="900" fill="#0B0B0D"/>
+  <rect width="1440" height="900" fill="#141418" opacity="0.4"/>
+  <rect width="1440" height="900" fill="#000" opacity="0.55"/>
+
+  <!-- Modal -->
+  <g transform="translate(340, 100)">
+    <rect x="0" y="0" width="760" height="700" fill="#1B1B21" stroke="#A6822D"/>
+
+    <!-- Modal head -->
+    <text x="32" y="42" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="3" fill="#E8B84A">— NUEVO REGISTRO</text>
+    <text x="32" y="80" font-family="Bebas Neue, sans-serif" font-size="32" letter-spacing="2" fill="#F5EFE0">REGISTRAR PAGO</text>
+    <rect x="692" y="28" width="36" height="36" fill="none" stroke="#3A3A42"/>
+    <text x="710" y="52" font-family="Manrope, sans-serif" font-size="16" fill="#82828A" text-anchor="middle">✕</text>
+    <line x1="0" y1="110" x2="760" y2="110" stroke="#2A2A31"/>
+
+    <!-- Body split -->
+    <g transform="translate(32, 140)">
+      <!-- Left column -->
+      <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">SOCIO</text>
+      <rect x="0" y="16" width="380" height="60" fill="#141418" stroke="#3A3A42"/>
+      <rect x="12" y="26" width="40" height="40" fill="#232329" stroke="#3A3A42"/>
+      <text x="32" y="51" font-family="Bebas Neue, sans-serif" font-size="14" fill="#E8B84A" text-anchor="middle" letter-spacing="1">MR</text>
+      <text x="64" y="44" font-size="13" font-weight="600" fill="#F5EFE0">Marco Rivera Carrión</text>
+      <text x="64" y="60" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">GD-1042 · CI 1723456789 · SEDE NORTE</text>
+      <rect x="308" y="34" width="60" height="24" fill="none" stroke="#A6822D"/>
+      <text x="338" y="50" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#E8B84A" text-anchor="middle">CAMBIAR</text>
+
+      <!-- Plan selector -->
+      <text x="0" y="116" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">TIPO DE MEMBRESÍA</text>
+      <!-- Mensual (selected) -->
+      <rect x="0" y="132" width="120" height="110" fill="#1F1810" stroke="#E8B84A" stroke-width="2"/>
+      <text x="108" y="150" font-family="JetBrains Mono, monospace" font-size="10" fill="#E8B84A" text-anchor="end">✓</text>
+      <text x="12" y="176" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#E8B84A">MENSUAL</text>
+      <text x="12" y="196" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">30 DÍAS</text>
+      <text x="12" y="228" font-family="Bebas Neue, sans-serif" font-size="28" letter-spacing="1" fill="#F5EFE0">$30</text>
+
+      <!-- Trim -->
+      <rect x="130" y="132" width="120" height="110" fill="transparent" stroke="#3A3A42"/>
+      <text x="142" y="176" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0">TRIM.</text>
+      <text x="142" y="196" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">90 D · 10% OFF</text>
+      <text x="142" y="228" font-family="Bebas Neue, sans-serif" font-size="28" letter-spacing="1" fill="#F5EFE0">$80</text>
+
+      <!-- Clases -->
+      <rect x="260" y="132" width="120" height="110" fill="transparent" stroke="#3A3A42"/>
+      <text x="272" y="176" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0">CLASES</text>
+      <text x="272" y="196" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">SUELTAS</text>
+      <text x="272" y="228" font-family="Bebas Neue, sans-serif" font-size="28" letter-spacing="1" fill="#F5EFE0">$5<tspan font-size="12" fill="#82828A">/c</tspan></text>
+
+      <!-- Dates -->
+      <text x="0" y="288" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">INICIO</text>
+      <text x="0" y="320" font-family="JetBrains Mono, monospace" font-size="15" fill="#F5EFE0" letter-spacing="1">08 · SEP · 2026</text>
+      <line x1="0" y1="332" x2="180" y2="332" stroke="#3A3A42"/>
+
+      <text x="200" y="288" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#E8B84A">VENCE (AUTO)</text>
+      <text x="200" y="320" font-family="JetBrains Mono, monospace" font-size="15" fill="#E8B84A" letter-spacing="1">08 · OCT · 2026</text>
+      <line x1="200" y1="332" x2="380" y2="332" stroke="#A6822D"/>
+
+      <!-- Payment method -->
+      <text x="0" y="376" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">MÉTODO DE PAGO</text>
+      <rect x="0" y="392" width="120" height="42" fill="#1F1810" stroke="#E8B84A" stroke-width="2"/>
+      <text x="60" y="418" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#E8B84A" text-anchor="middle">✓ EFECTIVO</text>
+      <rect x="130" y="392" width="120" height="42" fill="transparent" stroke="#3A3A42"/>
+      <text x="190" y="418" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#F5EFE0" text-anchor="middle">TRANSFER.</text>
+      <rect x="260" y="392" width="120" height="42" fill="transparent" stroke="#3A3A42"/>
+      <text x="320" y="418" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#F5EFE0" text-anchor="middle">TARJETA</text>
+    </g>
+
+    <!-- Right column: summary -->
+    <g transform="translate(464, 140)">
+      <rect x="0" y="0" width="264" height="434" fill="#141418" stroke="#3A3A42"/>
+      <text x="20" y="30" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">RESUMEN</text>
+      <text x="20" y="68" font-family="Manrope, sans-serif" font-size="13" fill="#82828A">Mensualidad</text>
+      <text x="244" y="68" font-family="JetBrains Mono, monospace" font-size="13" fill="#F5EFE0" text-anchor="end">$30.00</text>
+      <text x="20" y="92" font-family="Manrope, sans-serif" font-size="13" fill="#82828A">Cargo por sucursal</text>
+      <text x="244" y="92" font-family="JetBrains Mono, monospace" font-size="13" fill="#82828A" text-anchor="end">$0.00</text>
+      <text x="20" y="116" font-family="Manrope, sans-serif" font-size="13" fill="#82828A">Descuento</text>
+      <text x="244" y="116" font-family="JetBrains Mono, monospace" font-size="13" fill="#82828A" text-anchor="end">—</text>
+      <line x1="20" y1="140" x2="244" y2="140" stroke="#3A3A42"/>
+      <text x="20" y="176" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">TOTAL A COBRAR</text>
+      <text x="20" y="240" font-family="Bebas Neue, sans-serif" font-size="56" letter-spacing="2" fill="#E8B84A">$30<tspan font-size="16" fill="#82828A" letter-spacing="2">USD</tspan></text>
+      <line x1="20" y1="290" x2="244" y2="290" stroke="#2A2A31"/>
+      <text x="20" y="322" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#82828A">RECIBO Nº R-002481</text>
+      <text x="20" y="342" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#82828A">CAJA: RECEPCIÓN NORTE</text>
+      <text x="20" y="362" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#82828A">CAJERO: J. CHACHALO</text>
+    </g>
+
+    <!-- Modal footer -->
+    <line x1="0" y1="620" x2="760" y2="620" stroke="#2A2A31"/>
+    <rect x="0" y="620" width="760" height="80" fill="#141418"/>
+    <rect x="32" y="640" width="120" height="40" fill="none" stroke="#A6822D"/>
+    <text x="92" y="665" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="2" fill="#E8B84A" text-anchor="middle">CANCELAR</text>
+    <rect x="440" y="640" width="288" height="40" fill="#E8B84A"/>
+    <text x="584" y="665" font-family="Bebas Neue, sans-serif" font-size="18" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">CONFIRMAR COBRO · $30 →</text>
+  </g>
+</svg>

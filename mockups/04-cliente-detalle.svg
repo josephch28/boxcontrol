@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="Manrope, sans-serif">
+  <rect width="1440" height="900" fill="#0B0B0D"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="240" height="900" fill="#0E0E11"/>
+  <line x1="240" y1="0" x2="240" y2="900" stroke="#2A2A31"/>
+  <g transform="translate(24, 28)">
+    <path d="M12 8 L28 8 L32 14 L32 26 L28 32 L20 34 L12 32 L8 26 L8 16 Z" fill="none" stroke="#E8B84A" stroke-width="2"/>
+    <circle cx="14" cy="18" r="1.5" fill="#E8B84A"/><circle cx="26" cy="18" r="1.5" fill="#E8B84A"/>
+    <text x="48" y="26" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="2" fill="#F5EFE0">G<tspan fill="#E8B84A">D</tspan> ·BOX</text>
+  </g>
+  <line x1="24" y1="80" x2="216" y2="80" stroke="#2A2A31"/>
+  <text x="24" y="112" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— OPERACIÓN</text>
+  <text x="42" y="154" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Panel</text>
+  <rect x="0" y="168" width="240" height="42" fill="#151510" opacity="0.6"/>
+  <line x1="0" y1="168" x2="0" y2="210" stroke="#E8B84A" stroke-width="2"/>
+  <text x="42" y="194" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Clientes</text>
+  <rect x="188" y="182" width="28" height="18" fill="#E8B84A"/>
+  <text x="202" y="194" font-family="JetBrains Mono, monospace" font-size="10" fill="#1A1206" text-anchor="middle" font-weight="700">142</text>
+  <text x="42" y="236" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Membresías</text>
+  <text x="42" y="276" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Pagos</text>
+  <text x="42" y="316" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Reportes</text>
+  <text x="24" y="360" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— CONFIGURACIÓN</text>
+  <text x="42" y="392" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Sucursales</text>
+  <text x="42" y="432" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Contenido IA</text>
+  <line x1="24" y1="820" x2="216" y2="820" stroke="#2A2A31"/>
+  <rect x="24" y="840" width="36" height="36" fill="#232329" stroke="#A6822D"/>
+  <text x="42" y="864" font-family="Bebas Neue, sans-serif" font-size="14" fill="#E8B84A" text-anchor="middle">JC</text>
+  <text x="72" y="858" font-family="Manrope, sans-serif" font-size="12" fill="#F5EFE0" font-weight="600">Joseph Chachalo</text>
+  <text x="72" y="874" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">ADMIN GENERAL</text>
+
+  <!-- Breadcrumb -->
+  <text x="280" y="50" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">SOCIOS <tspan fill="#E8B84A">/</tspan> <tspan fill="#F5EFE0">MARCO RIVERA</tspan></text>
+  <text x="1400" y="50" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A" text-anchor="end">ÚLT. INGRESO: 06 SEPT · 18:42</text>
+
+  <!-- Client header -->
+  <rect x="280" y="80" width="1120" height="128" fill="none" stroke="none"/>
+  <rect x="280" y="112" width="88" height="88" fill="#232329" stroke="#E8B84A" stroke-width="2"/>
+  <text x="324" y="170" font-family="Bebas Neue, sans-serif" font-size="36" letter-spacing="2" fill="#E8B84A" text-anchor="middle">MR</text>
+
+  <text x="400" y="132" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#E8B84A">— SOCIO GD-1042</text>
+  <text x="400" y="174" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="2" fill="#F5EFE0">MARCO RIVERA CARRIÓN</text>
+  <text x="400" y="200" font-family="JetBrains Mono, monospace" font-size="11" fill="#82828A" letter-spacing="1">CI 1723456789  ·  +593 99 843 1290  ·  marco.rivera@mail.com  ·  <tspan fill="#E8B84A">SEDE NORTE</tspan></text>
+
+  <!-- Actions -->
+  <rect x="1200" y="112" width="200" height="24" fill="#0F1F14" stroke="#4ADE80" stroke-opacity="0.3"/>
+  <circle cx="1214" cy="124" r="3" fill="#4ADE80"/>
+  <text x="1300" y="128" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#4ADE80" text-anchor="middle">MEMBRESÍA ACTIVA</text>
+  <rect x="1200" y="142" width="200" height="28" fill="none" stroke="#A6822D"/>
+  <text x="1300" y="161" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">EDITAR SOCIO</text>
+  <rect x="1200" y="176" width="200" height="32" fill="#E8B84A"/>
+  <text x="1300" y="197" font-family="Bebas Neue, sans-serif" font-size="14" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">+ REGISTRAR PAGO</text>
+
+  <line x1="280" y1="230" x2="1400" y2="230" stroke="#2A2A31"/>
+
+  <!-- Two columns -->
+  <!-- LEFT COLUMN -->
+  <!-- Membership card -->
+  <rect x="280" y="256" width="320" height="180" fill="#1B1B21" stroke="#A6822D"/>
+  <text x="304" y="286" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">MEMBRESÍA ACTUAL</text>
+  <text x="304" y="326" font-family="Bebas Neue, sans-serif" font-size="32" letter-spacing="2" fill="#E8B84A">MENSUAL</text>
+  <text x="304" y="346" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0" letter-spacing="1">$30 / MES · SIN INSCRIPCIÓN</text>
+  <line x1="304" y1="366" x2="576" y2="366" stroke="#2A2A31"/>
+  <text x="304" y="388" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">INICIO</text>
+  <text x="304" y="410" font-family="JetBrains Mono, monospace" font-size="13" fill="#F5EFE0">08·SEP·26</text>
+  <text x="440" y="388" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#F87171">VENCE</text>
+  <text x="440" y="410" font-family="JetBrains Mono, monospace" font-size="13" fill="#F87171">08·OCT·26</text>
+
+  <!-- Stats -->
+  <rect x="280" y="456" width="320" height="200" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="304" y="486" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">ESTADÍSTICAS</text>
+  <text x="304" y="546" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="1" fill="#E8B84A">14</text>
+  <text x="304" y="566" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">ASIST. MES</text>
+  <text x="440" y="546" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="1" fill="#F5EFE0">218</text>
+  <text x="440" y="566" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">TOTAL HIST.</text>
+  <text x="304" y="620" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="1" fill="#F5EFE0">$360</text>
+  <text x="304" y="640" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">PAGADO 2026</text>
+  <text x="440" y="620" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="1" fill="#F5EFE0">18</text>
+  <text x="440" y="640" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">MESES ACTIVO</text>
+
+  <!-- Personal data -->
+  <rect x="280" y="676" width="320" height="160" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="304" y="706" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">DATOS PERSONALES</text>
+  <text x="304" y="742" font-family="Manrope, sans-serif" font-size="13" fill="#82828A">Fecha nac.</text>
+  <text x="576" y="742" font-family="JetBrains Mono, monospace" font-size="12" fill="#F5EFE0" text-anchor="end">14 · MAR · 1998</text>
+  <text x="304" y="770" font-family="Manrope, sans-serif" font-size="13" fill="#82828A">Emergencia</text>
+  <text x="576" y="770" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" text-anchor="end">Ana Carrión</text>
+  <text x="304" y="798" font-family="Manrope, sans-serif" font-size="13" fill="#82828A">Alta como socio</text>
+  <text x="576" y="798" font-family="JetBrains Mono, monospace" font-size="12" fill="#F5EFE0" text-anchor="end">08 · MAR · 2025</text>
+
+  <!-- RIGHT COLUMN: PAYMENT HISTORY -->
+  <rect x="620" y="256" width="780" height="580" fill="#1B1B21" stroke="#2A2A31"/>
+
+  <!-- Tabs -->
+  <text x="644" y="298" font-family="Bebas Neue, sans-serif" font-size="18" letter-spacing="2" fill="#E8B84A">HISTORIAL DE PAGOS</text>
+  <line x1="644" y1="308" x2="836" y2="308" stroke="#E8B84A" stroke-width="2"/>
+  <text x="864" y="298" font-family="Bebas Neue, sans-serif" font-size="18" letter-spacing="2" fill="#82828A">ASISTENCIAS</text>
+  <text x="1044" y="298" font-family="Bebas Neue, sans-serif" font-size="18" letter-spacing="2" fill="#82828A">RENOVACIONES</text>
+  <rect x="1264" y="278" width="112" height="26" fill="none" stroke="#A6822D"/>
+  <text x="1320" y="294" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">↓ EXPORTAR CSV</text>
+  <line x1="620" y1="320" x2="1400" y2="320" stroke="#3A3A42"/>
+
+  <!-- Table head -->
+  <g font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="2">
+    <text x="644" y="354">Nº</text>
+    <text x="720" y="354">CONCEPTO</text>
+    <text x="984" y="354">MÉTODO</text>
+    <text x="1176" y="354">RECIBO</text>
+    <text x="1376" y="354" text-anchor="end">MONTO</text>
+  </g>
+  <line x1="644" y1="366" x2="1376" y2="366" stroke="#2A2A31"/>
+
+  <!-- Rows -->
+  <g font-family="Manrope, sans-serif">
+    <text x="644" y="400" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8B84A">#248</text>
+    <text x="720" y="398" font-size="13" font-weight="600" fill="#F5EFE0">Renovación mensual</text>
+    <text x="720" y="414" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">08 SEPT 2026 · 10:24</text>
+    <text x="984" y="398" font-size="12" fill="#F5EFE0">Efectivo</text>
+    <text x="984" y="414" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">Recepción Norte</text>
+    <text x="1176" y="404" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0">R-002480</text>
+    <text x="1376" y="410" font-family="Bebas Neue, sans-serif" font-size="20" fill="#E8B84A" text-anchor="end">$30</text>
+    <line x1="644" y1="436" x2="1376" y2="436" stroke="#2A2A31"/>
+
+    <text x="644" y="470" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8B84A">#231</text>
+    <text x="720" y="468" font-size="13" font-weight="600" fill="#F5EFE0">Renovación mensual</text>
+    <text x="720" y="484" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">05 AGO 2026 · 09:11</text>
+    <text x="984" y="468" font-size="12" fill="#F5EFE0">Transferencia</text>
+    <text x="984" y="484" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">Banco Pichincha</text>
+    <text x="1176" y="474" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0">R-002316</text>
+    <text x="1376" y="480" font-family="Bebas Neue, sans-serif" font-size="20" fill="#F5EFE0" text-anchor="end">$30</text>
+    <line x1="644" y1="506" x2="1376" y2="506" stroke="#2A2A31"/>
+
+    <text x="644" y="540" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8B84A">#215</text>
+    <text x="720" y="538" font-size="13" font-weight="600" fill="#F5EFE0">Renovación mensual</text>
+    <text x="720" y="554" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">06 JUL 2026 · 17:44</text>
+    <text x="984" y="538" font-size="12" fill="#F5EFE0">Efectivo</text>
+    <text x="984" y="554" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">Recepción Norte</text>
+    <text x="1176" y="544" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0">R-002153</text>
+    <text x="1376" y="550" font-family="Bebas Neue, sans-serif" font-size="20" fill="#F5EFE0" text-anchor="end">$30</text>
+    <line x1="644" y1="576" x2="1376" y2="576" stroke="#2A2A31"/>
+
+    <text x="644" y="610" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8B84A">#198</text>
+    <text x="720" y="608" font-size="13" font-weight="600" fill="#F5EFE0">Renovación mensual</text>
+    <text x="720" y="624" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">04 JUN 2026 · 11:02</text>
+    <text x="984" y="608" font-size="12" fill="#F5EFE0">Efectivo</text>
+    <text x="984" y="624" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">Recepción Sur</text>
+    <text x="1176" y="614" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0">R-001983</text>
+    <text x="1376" y="620" font-family="Bebas Neue, sans-serif" font-size="20" fill="#F5EFE0" text-anchor="end">$30</text>
+    <line x1="644" y1="646" x2="1376" y2="646" stroke="#2A2A31"/>
+
+    <text x="644" y="680" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8B84A">#164</text>
+    <text x="720" y="678" font-size="13" font-weight="600" fill="#F5EFE0">Trimestral</text>
+    <text x="720" y="694" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">02 ABR 2026 · 09:33</text>
+    <text x="984" y="678" font-size="12" fill="#F5EFE0">Efectivo</text>
+    <text x="984" y="694" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">Recepción Norte</text>
+    <text x="1176" y="684" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5EFE0">R-001642</text>
+    <text x="1376" y="690" font-family="Bebas Neue, sans-serif" font-size="20" fill="#F5EFE0" text-anchor="end">$80</text>
+  </g>
+
+  <!-- Total -->
+  <line x1="644" y1="750" x2="1376" y2="750" stroke="#3A3A42"/>
+  <text x="644" y="790" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#82828A">TOTAL SOCIO: <tspan font-family="Bebas Neue, sans-serif" font-size="20" fill="#E8B84A" letter-spacing="1">$540 USD</tspan></text>
+  <text x="1376" y="790" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#82828A" text-anchor="end">18 REGISTROS · MOSTRANDO 5</text>
+</svg>

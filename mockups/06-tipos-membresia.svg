@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="Manrope, sans-serif">
+  <rect width="1440" height="900" fill="#0B0B0D"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="240" height="900" fill="#0E0E11"/>
+  <line x1="240" y1="0" x2="240" y2="900" stroke="#2A2A31"/>
+  <g transform="translate(24, 28)">
+    <path d="M12 8 L28 8 L32 14 L32 26 L28 32 L20 34 L12 32 L8 26 L8 16 Z" fill="none" stroke="#E8B84A" stroke-width="2"/>
+    <circle cx="14" cy="18" r="1.5" fill="#E8B84A"/><circle cx="26" cy="18" r="1.5" fill="#E8B84A"/>
+    <text x="48" y="26" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="2" fill="#F5EFE0">G<tspan fill="#E8B84A">D</tspan> ·BOX</text>
+  </g>
+  <line x1="24" y1="80" x2="216" y2="80" stroke="#2A2A31"/>
+  <text x="24" y="112" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— OPERACIÓN</text>
+  <text x="42" y="154" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Panel</text>
+  <text x="42" y="194" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Clientes</text>
+  <rect x="0" y="208" width="240" height="42" fill="#151510" opacity="0.6"/>
+  <line x1="0" y1="208" x2="0" y2="250" stroke="#E8B84A" stroke-width="2"/>
+  <text x="42" y="234" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Membresías</text>
+  <rect x="188" y="222" width="28" height="18" fill="#E8B84A"/>
+  <text x="202" y="234" font-family="JetBrains Mono, monospace" font-size="10" fill="#1A1206" text-anchor="middle" font-weight="700">18</text>
+  <text x="42" y="276" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Pagos</text>
+  <text x="42" y="316" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Reportes</text>
+  <text x="24" y="360" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— CONFIGURACIÓN</text>
+  <text x="42" y="392" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Sucursales</text>
+  <text x="42" y="432" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Contenido IA</text>
+  <line x1="24" y1="820" x2="216" y2="820" stroke="#2A2A31"/>
+  <rect x="24" y="840" width="36" height="36" fill="#232329" stroke="#A6822D"/>
+  <text x="42" y="864" font-family="Bebas Neue, sans-serif" font-size="14" fill="#E8B84A" text-anchor="middle">JC</text>
+  <text x="72" y="858" font-family="Manrope, sans-serif" font-size="12" fill="#F5EFE0" font-weight="600">Joseph Chachalo</text>
+  <text x="72" y="874" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">ADMIN GENERAL</text>
+
+  <!-- Topbar -->
+  <text x="280" y="54" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">CONFIGURACIÓN · 3 PLANES ACTIVOS</text>
+  <text x="280" y="88" font-family="Bebas Neue, sans-serif" font-size="32" letter-spacing="2" fill="#F5EFE0">TIPOS DE MEMBRESÍA</text>
+  <rect x="1260" y="60" width="140" height="34" fill="#E8B84A"/>
+  <text x="1330" y="82" font-family="Bebas Neue, sans-serif" font-size="16" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">+ NUEVO PLAN</text>
+  <line x1="280" y1="112" x2="1400" y2="112" stroke="#2A2A31"/>
+
+  <!-- Card 1: MENSUAL -->
+  <rect x="280" y="150" width="360" height="620" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="304" y="188" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#82828A">— PLAN 01</text>
+  <text x="304" y="238" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="2" fill="#F5EFE0">MENSUAL</text>
+  <rect x="540" y="176" width="72" height="22" fill="#0F1F14"/>
+  <text x="576" y="192" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#4ADE80" text-anchor="middle">ACTIVO</text>
+  <line x1="304" y1="270" x2="616" y2="270" stroke="#2A2A31"/>
+  <text x="304" y="352" font-family="Bebas Neue, sans-serif" font-size="72" letter-spacing="2" fill="#F5EFE0">$30</text>
+  <text x="420" y="352" font-family="JetBrains Mono, monospace" font-size="12" fill="#82828A">USD / MES</text>
+  <text x="304" y="376" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#82828A">30 DÍAS · SIN INSCRIPCIÓN</text>
+  <!-- Features -->
+  <text x="304" y="428" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  Acceso ilimitado ambas sucursales</text>
+  <text x="304" y="458" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  Rutinas de la app incluidas</text>
+  <text x="304" y="488" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  Carnet QR digital</text>
+  <line x1="304" y1="680" x2="616" y2="680" stroke="#2A2A31"/>
+  <text x="304" y="720" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">98</text>
+  <text x="304" y="736" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">SOCIOS ACTIVOS</text>
+  <rect x="520" y="700" width="92" height="30" fill="none" stroke="#A6822D"/>
+  <text x="566" y="720" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">EDITAR</text>
+
+  <!-- Card 2: TRIMESTRAL (featured) -->
+  <rect x="660" y="150" width="360" height="620" fill="#1B1B21" stroke="#A6822D" stroke-width="2"/>
+  <rect x="1020" y="150" width="120" height="30" fill="#E8B84A"/>
+  <text x="1080" y="171" font-family="Bebas Neue, sans-serif" font-size="14" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">MÁS VENDIDO</text>
+  <text x="684" y="200" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#E8B84A">— PLAN 02</text>
+  <text x="684" y="250" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="2" fill="#E8B84A">TRIMESTRAL</text>
+  <line x1="684" y1="282" x2="996" y2="282" stroke="#2A2A31"/>
+  <text x="684" y="364" font-family="Bebas Neue, sans-serif" font-size="72" letter-spacing="2" fill="#F5EFE0">$80</text>
+  <text x="800" y="364" font-family="JetBrains Mono, monospace" font-size="12" fill="#82828A">USD / 3M</text>
+  <text x="684" y="388" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#E8B84A">AHORRAS $10 · 10% OFF</text>
+  <text x="684" y="440" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  Todo lo de mensual</text>
+  <text x="684" y="470" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  1 sesión de valoración</text>
+  <text x="684" y="500" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  Prioridad en sparring</text>
+  <line x1="684" y1="680" x2="996" y2="680" stroke="#2A2A31"/>
+  <text x="684" y="720" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">32</text>
+  <text x="684" y="736" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">SOCIOS ACTIVOS</text>
+  <rect x="900" y="700" width="92" height="30" fill="none" stroke="#A6822D"/>
+  <text x="946" y="720" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">EDITAR</text>
+
+  <!-- Card 3: CLASES -->
+  <rect x="1040" y="150" width="360" height="620" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="1064" y="188" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#82828A">— PLAN 03</text>
+  <text x="1064" y="238" font-family="Bebas Neue, sans-serif" font-size="44" letter-spacing="2" fill="#F5EFE0">CLASES</text>
+  <rect x="1300" y="176" width="72" height="22" fill="#0F1F14"/>
+  <text x="1336" y="192" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#4ADE80" text-anchor="middle">ACTIVO</text>
+  <line x1="1064" y1="270" x2="1376" y2="270" stroke="#2A2A31"/>
+  <text x="1064" y="352" font-family="Bebas Neue, sans-serif" font-size="72" letter-spacing="2" fill="#F5EFE0">$5</text>
+  <text x="1160" y="352" font-family="JetBrains Mono, monospace" font-size="12" fill="#82828A">USD / CLASE</text>
+  <text x="1064" y="376" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#82828A">SIN COMPROMISO · PAGAS Y ENTRAS</text>
+  <text x="1064" y="428" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  Acceso a 1 sesión</text>
+  <text x="1064" y="458" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0"><tspan fill="#E8B84A">✓</tspan>  Sin renovación automática</text>
+  <text x="1064" y="488" font-family="Manrope, sans-serif" font-size="13" fill="#82828A"><tspan fill="#82828A">×</tspan>  Rutinas de la app no incluidas</text>
+  <line x1="1064" y1="680" x2="1376" y2="680" stroke="#2A2A31"/>
+  <text x="1064" y="720" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1" fill="#E8B84A">12</text>
+  <text x="1064" y="736" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">SOCIOS ESTE MES</text>
+  <rect x="1280" y="700" width="92" height="30" fill="none" stroke="#A6822D"/>
+  <text x="1326" y="720" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">EDITAR</text>
+</svg>

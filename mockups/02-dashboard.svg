@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="Manrope, sans-serif">
+  <rect width="1440" height="900" fill="#0B0B0D"/>
+
+  <!-- SIDEBAR -->
+  <rect x="0" y="0" width="240" height="900" fill="#0E0E11"/>
+  <line x1="240" y1="0" x2="240" y2="900" stroke="#2A2A31"/>
+
+  <!-- Sidebar brand -->
+  <g transform="translate(24, 28)">
+    <path d="M12 8 L28 8 L32 14 L32 26 L28 32 L20 34 L12 32 L8 26 L8 16 Z" fill="none" stroke="#E8B84A" stroke-width="2"/>
+    <circle cx="14" cy="18" r="1.5" fill="#E8B84A"/><circle cx="26" cy="18" r="1.5" fill="#E8B84A"/>
+    <text x="48" y="26" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="2" fill="#F5EFE0">G<tspan fill="#E8B84A">D</tspan> ·BOX</text>
+  </g>
+  <line x1="24" y1="80" x2="216" y2="80" stroke="#2A2A31"/>
+
+  <!-- Sidebar nav -->
+  <text x="24" y="112" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— OPERACIÓN</text>
+
+  <!-- Active: Panel -->
+  <rect x="0" y="128" width="240" height="42" fill="#151510" opacity="0.6"/>
+  <line x1="0" y1="128" x2="0" y2="170" stroke="#E8B84A" stroke-width="2"/>
+  <text x="42" y="154" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Panel</text>
+
+  <text x="42" y="196" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Clientes</text>
+  <rect x="188" y="184" width="28" height="18" fill="#232329"/>
+  <text x="202" y="196" font-family="JetBrains Mono, monospace" font-size="10" fill="#F5EFE0" text-anchor="middle">142</text>
+
+  <text x="42" y="236" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Membresías</text>
+  <rect x="188" y="224" width="28" height="18" fill="#232329"/>
+  <text x="202" y="236" font-family="JetBrains Mono, monospace" font-size="10" fill="#F5EFE0" text-anchor="middle">18</text>
+
+  <text x="42" y="276" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Pagos</text>
+  <text x="42" y="316" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Reportes</text>
+
+  <text x="24" y="360" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— CONFIGURACIÓN</text>
+  <text x="42" y="392" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Sucursales</text>
+  <text x="42" y="432" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Contenido IA</text>
+  <rect x="188" y="420" width="20" height="18" fill="#232329"/>
+  <text x="198" y="432" font-family="JetBrains Mono, monospace" font-size="10" fill="#F5EFE0" text-anchor="middle">3</text>
+
+  <!-- Sidebar user -->
+  <line x1="24" y1="820" x2="216" y2="820" stroke="#2A2A31"/>
+  <rect x="24" y="840" width="36" height="36" fill="#232329" stroke="#A6822D"/>
+  <text x="42" y="864" font-family="Bebas Neue, sans-serif" font-size="14" fill="#E8B84A" text-anchor="middle" letter-spacing="1">JC</text>
+  <text x="72" y="858" font-family="Manrope, sans-serif" font-size="12" fill="#F5EFE0" font-weight="600">Joseph Chachalo</text>
+  <text x="72" y="874" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">ADMIN GENERAL</text>
+
+  <!-- TOPBAR -->
+  <g transform="translate(280, 40)">
+    <text x="0" y="14" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">VISTA GENERAL · SEPT 07, 2026</text>
+    <text x="0" y="48" font-family="Bebas Neue, sans-serif" font-size="32" letter-spacing="2" fill="#F5EFE0">PANEL OPERATIVO</text>
+
+    <!-- Search -->
+    <rect x="700" y="24" width="240" height="34" fill="#141418" stroke="#2A2A31"/>
+    <text x="716" y="46" font-family="JetBrains Mono, monospace" font-size="11" fill="#82828A">Buscar socio, cédula o carnet…</text>
+
+    <!-- Segmented -->
+    <rect x="960" y="24" width="200" height="34" fill="#141418" stroke="#2A2A31"/>
+    <rect x="964" y="28" width="72" height="26" fill="#E8B84A"/>
+    <text x="1000" y="45" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">TODAS</text>
+    <text x="1078" y="45" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A" text-anchor="middle">NORTE</text>
+    <text x="1138" y="45" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A" text-anchor="middle">SUR</text>
+  </g>
+  <line x1="280" y1="112" x2="1400" y2="112" stroke="#2A2A31"/>
+
+  <!-- KPI ROW -->
+  <g transform="translate(280, 140)">
+    <!-- KPI 1: Socios activos (hero) -->
+    <rect x="0" y="0" width="264" height="156" fill="#1B1B21" stroke="#2A2A31"/>
+    <line x1="0" y1="0" x2="0" y2="156" stroke="#E8B84A" stroke-width="3"/>
+    <text x="24" y="30" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">SOCIOS ACTIVOS</text>
+    <rect x="192" y="16" width="52" height="18" fill="#1E2E1E"/>
+    <text x="218" y="30" font-family="JetBrains Mono, monospace" font-size="10" fill="#4ADE80" text-anchor="middle">▲ 12</text>
+    <text x="24" y="106" font-family="Bebas Neue, sans-serif" font-size="76" letter-spacing="1" fill="#F5EFE0">142</text>
+    <line x1="24" y1="120" x2="240" y2="120" stroke="#2A2A31"/>
+    <text x="24" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">84</tspan> NORTE</text>
+    <text x="240" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A" text-anchor="end"><tspan fill="#F5EFE0" font-weight="600">58</tspan> SUR</text>
+
+    <!-- KPI 2: Por vencer -->
+    <rect x="284" y="0" width="264" height="156" fill="#1B1B21" stroke="#2A2A31"/>
+    <text x="308" y="30" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">POR VENCER · 7D</text>
+    <rect x="476" y="16" width="52" height="18" fill="#2E2818"/>
+    <text x="502" y="30" font-family="JetBrains Mono, monospace" font-size="10" fill="#FBBF24" text-anchor="middle">▲ 4</text>
+    <text x="308" y="106" font-family="Bebas Neue, sans-serif" font-size="76" letter-spacing="1" fill="#F5EFE0">18</text>
+    <line x1="308" y1="120" x2="524" y2="120" stroke="#2A2A31"/>
+    <text x="308" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A"><tspan fill="#F5EFE0" font-weight="600">11</tspan> MENSUAL</text>
+    <text x="524" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A" text-anchor="end"><tspan fill="#F5EFE0" font-weight="600">7</tspan> TRIM.</text>
+
+    <!-- KPI 3: Ingresos mes -->
+    <rect x="568" y="0" width="264" height="156" fill="#1B1B21" stroke="#2A2A31"/>
+    <text x="592" y="30" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">INGRESOS SEPTIEMBRE</text>
+    <rect x="760" y="16" width="60" height="18" fill="#1E2E1E"/>
+    <text x="790" y="30" font-family="JetBrains Mono, monospace" font-size="10" fill="#4ADE80" text-anchor="middle">▲ 18%</text>
+    <text x="592" y="106" font-family="Bebas Neue, sans-serif" font-size="76" letter-spacing="1" fill="#E8B84A">$2,340<tspan font-size="24" fill="#82828A" letter-spacing="2">USD</tspan></text>
+    <line x1="592" y1="120" x2="808" y2="120" stroke="#2A2A31"/>
+    <text x="592" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A">META: <tspan fill="#F5EFE0" font-weight="600">$2,800</tspan></text>
+    <text x="808" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A" text-anchor="end">84%</text>
+
+    <!-- KPI 4: Ingresos hoy -->
+    <rect x="852" y="0" width="264" height="156" fill="#1B1B21" stroke="#2A2A31"/>
+    <text x="876" y="30" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">INGRESOS HOY</text>
+    <rect x="1050" y="16" width="52" height="18" fill="#2E1818"/>
+    <text x="1076" y="30" font-family="JetBrains Mono, monospace" font-size="10" fill="#F87171" text-anchor="middle">▼ 2</text>
+    <text x="876" y="106" font-family="Bebas Neue, sans-serif" font-size="76" letter-spacing="1" fill="#F5EFE0">27</text>
+    <line x1="876" y1="120" x2="1092" y2="120" stroke="#2A2A31"/>
+    <text x="876" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A">ÚLTIMA: <tspan fill="#F5EFE0" font-weight="600">10:24</tspan></text>
+    <text x="1092" y="140" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1" fill="#82828A" text-anchor="end"><tspan fill="#F5EFE0" font-weight="600">QR</tspan> 92%</text>
+  </g>
+
+  <!-- CHART PANEL -->
+  <g transform="translate(280, 320)">
+    <rect x="0" y="0" width="660" height="540" fill="#1B1B21" stroke="#2A2A31"/>
+    <text x="24" y="42" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="2" fill="#F5EFE0">INGRESOS POR SUCURSAL</text>
+    <text x="24" y="62" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">ÚLTIMOS 30 DÍAS</text>
+    <text x="490" y="42" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#82828A"><tspan fill="#E8B84A">━</tspan> NORTE  <tspan fill="#6C8DD6">━</tspan> SUR</text>
+    <line x1="24" y1="80" x2="636" y2="80" stroke="#2A2A31"/>
+
+    <!-- Chart grid -->
+    <g stroke="#232329">
+      <line x1="60" y1="140" x2="636" y2="140"/>
+      <line x1="60" y1="220" x2="636" y2="220"/>
+      <line x1="60" y1="300" x2="636" y2="300"/>
+      <line x1="60" y1="380" x2="636" y2="380"/>
+      <line x1="60" y1="460" x2="636" y2="460"/>
+    </g>
+    <g font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A">
+      <text x="20" y="144">$150</text>
+      <text x="20" y="224">$120</text>
+      <text x="28" y="304">$90</text>
+      <text x="28" y="384">$60</text>
+      <text x="28" y="464">$30</text>
+    </g>
+
+    <!-- Sur line -->
+    <path d="M80 400 L130 410 L180 395 L230 415 L280 390 L330 400 L380 375 L430 390 L480 360 L530 380 L580 355 L620 375" fill="none" stroke="#6C8DD6" stroke-width="1.5"/>
+    <!-- Norte gold area -->
+    <path d="M80 360 L130 365 L180 340 L230 355 L280 320 L330 340 L380 305 L430 325 L480 290 L530 310 L580 280 L620 295 L620 460 L80 460 Z" fill="#E8B84A" fill-opacity="0.15"/>
+    <path d="M80 360 L130 365 L180 340 L230 355 L280 320 L330 340 L380 305 L430 325 L480 290 L530 310 L580 280 L620 295" fill="none" stroke="#E8B84A" stroke-width="2"/>
+    <circle cx="620" cy="295" r="4" fill="#E8B84A"/>
+    <text x="590" y="278" font-family="JetBrains Mono, monospace" font-size="11" fill="#E8B84A" font-weight="700">$147</text>
+
+    <!-- X labels -->
+    <g font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A">
+      <text x="80" y="495">08 AGO</text>
+      <text x="230" y="495">15 AGO</text>
+      <text x="380" y="495">22 AGO</text>
+      <text x="530" y="495">29 AGO</text>
+      <text x="600" y="495">HOY</text>
+    </g>
+  </g>
+
+  <!-- TABLE PANEL (Por vencer) -->
+  <g transform="translate(960, 320)">
+    <rect x="0" y="0" width="440" height="540" fill="#1B1B21" stroke="#2A2A31"/>
+    <text x="24" y="42" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="2" fill="#F5EFE0">POR VENCER · 7D</text>
+    <text x="24" y="62" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">ORDENADO POR URGENCIA</text>
+    <rect x="316" y="30" width="104" height="26" fill="none" stroke="#A6822D"/>
+    <text x="368" y="46" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#E8B84A" text-anchor="middle">VER TODAS · 18</text>
+    <line x1="24" y1="80" x2="416" y2="80" stroke="#2A2A31"/>
+
+    <!-- Rows: name, sub, branch pill, days -->
+    <!-- ROW 1 MR -->
+    <g transform="translate(24, 100)">
+      <rect x="0" y="0" width="32" height="32" fill="#1B1B21" stroke="#3A3A42"/>
+      <text x="16" y="20" font-family="Bebas Neue, sans-serif" font-size="12" fill="#E8B84A" text-anchor="middle">MR</text>
+      <text x="46" y="14" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Marco Rivera</text>
+      <text x="46" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">#GD-1042 · MENSUAL</text>
+      <rect x="240" y="8" width="46" height="16" fill="none" stroke="#A6822D"/>
+      <text x="263" y="20" font-family="JetBrains Mono, monospace" font-size="9" fill="#E8B84A" text-anchor="middle" letter-spacing="1.5">NORTE</text>
+      <text x="392" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="#F87171" text-anchor="end" font-weight="700">MAÑANA</text>
+      <text x="392" y="28" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" text-anchor="end" letter-spacing="1.5">08 SEPT</text>
+    </g>
+    <line x1="24" y1="150" x2="416" y2="150" stroke="#2A2A31"/>
+
+    <!-- ROW 2 LP -->
+    <g transform="translate(24, 170)">
+      <rect x="0" y="0" width="32" height="32" fill="#1B1B21" stroke="#3A3A42"/>
+      <text x="16" y="20" font-family="Bebas Neue, sans-serif" font-size="12" fill="#E8B84A" text-anchor="middle">LP</text>
+      <text x="46" y="14" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Lucía Paredes</text>
+      <text x="46" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">#GD-0987 · TRIMESTRAL</text>
+      <rect x="252" y="8" width="34" height="16" fill="none" stroke="#4A6899"/>
+      <text x="269" y="20" font-family="JetBrains Mono, monospace" font-size="9" fill="#8DB4FF" text-anchor="middle" letter-spacing="1.5">SUR</text>
+      <text x="392" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="#F87171" text-anchor="end" font-weight="700">2 DÍAS</text>
+      <text x="392" y="28" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" text-anchor="end" letter-spacing="1.5">09 SEPT</text>
+    </g>
+    <line x1="24" y1="220" x2="416" y2="220" stroke="#2A2A31"/>
+
+    <!-- ROW 3 DV -->
+    <g transform="translate(24, 240)">
+      <rect x="0" y="0" width="32" height="32" fill="#1B1B21" stroke="#3A3A42"/>
+      <text x="16" y="20" font-family="Bebas Neue, sans-serif" font-size="12" fill="#E8B84A" text-anchor="middle">DV</text>
+      <text x="46" y="14" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Diego Vaca</text>
+      <text x="46" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">#GD-1128 · MENSUAL</text>
+      <rect x="240" y="8" width="46" height="16" fill="none" stroke="#A6822D"/>
+      <text x="263" y="20" font-family="JetBrains Mono, monospace" font-size="9" fill="#E8B84A" text-anchor="middle" letter-spacing="1.5">NORTE</text>
+      <text x="392" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="#FBBF24" text-anchor="end" font-weight="700">4 DÍAS</text>
+      <text x="392" y="28" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" text-anchor="end" letter-spacing="1.5">11 SEPT</text>
+    </g>
+    <line x1="24" y1="290" x2="416" y2="290" stroke="#2A2A31"/>
+
+    <!-- ROW 4 SN -->
+    <g transform="translate(24, 310)">
+      <rect x="0" y="0" width="32" height="32" fill="#1B1B21" stroke="#3A3A42"/>
+      <text x="16" y="20" font-family="Bebas Neue, sans-serif" font-size="12" fill="#E8B84A" text-anchor="middle">SN</text>
+      <text x="46" y="14" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Sofía Núñez</text>
+      <text x="46" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">#GD-1201 · MENSUAL</text>
+      <rect x="252" y="8" width="34" height="16" fill="none" stroke="#4A6899"/>
+      <text x="269" y="20" font-family="JetBrains Mono, monospace" font-size="9" fill="#8DB4FF" text-anchor="middle" letter-spacing="1.5">SUR</text>
+      <text x="392" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="#FBBF24" text-anchor="end" font-weight="700">5 DÍAS</text>
+      <text x="392" y="28" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" text-anchor="end" letter-spacing="1.5">12 SEPT</text>
+    </g>
+    <line x1="24" y1="360" x2="416" y2="360" stroke="#2A2A31"/>
+
+    <!-- ROW 5 AC -->
+    <g transform="translate(24, 380)">
+      <rect x="0" y="0" width="32" height="32" fill="#1B1B21" stroke="#3A3A42"/>
+      <text x="16" y="20" font-family="Bebas Neue, sans-serif" font-size="12" fill="#E8B84A" text-anchor="middle">AC</text>
+      <text x="46" y="14" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Andrés Cabrera</text>
+      <text x="46" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">#GD-0842 · CLASES</text>
+      <rect x="240" y="8" width="46" height="16" fill="none" stroke="#A6822D"/>
+      <text x="263" y="20" font-family="JetBrains Mono, monospace" font-size="9" fill="#E8B84A" text-anchor="middle" letter-spacing="1.5">NORTE</text>
+      <text x="392" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="#82828A" text-anchor="end" font-weight="700">6 DÍAS</text>
+      <text x="392" y="28" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" text-anchor="end" letter-spacing="1.5">13 SEPT</text>
+    </g>
+    <line x1="24" y1="430" x2="416" y2="430" stroke="#2A2A31"/>
+
+    <!-- ROW 6 VJ -->
+    <g transform="translate(24, 450)">
+      <rect x="0" y="0" width="32" height="32" fill="#1B1B21" stroke="#3A3A42"/>
+      <text x="16" y="20" font-family="Bebas Neue, sans-serif" font-size="12" fill="#E8B84A" text-anchor="middle">VJ</text>
+      <text x="46" y="14" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Valeria Jiron</text>
+      <text x="46" y="28" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" letter-spacing="1">#GD-1289 · TRIMESTRAL</text>
+      <rect x="252" y="8" width="34" height="16" fill="none" stroke="#4A6899"/>
+      <text x="269" y="20" font-family="JetBrains Mono, monospace" font-size="9" fill="#8DB4FF" text-anchor="middle" letter-spacing="1.5">SUR</text>
+      <text x="392" y="14" font-family="JetBrains Mono, monospace" font-size="12" fill="#82828A" text-anchor="end" font-weight="700">7 DÍAS</text>
+      <text x="392" y="28" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" text-anchor="end" letter-spacing="1.5">14 SEPT</text>
+    </g>
+  </g>
+</svg>

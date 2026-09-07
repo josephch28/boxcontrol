@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" font-family="Manrope, sans-serif">
+  <rect width="1440" height="900" fill="#0B0B0D"/>
+
+  <!-- Sidebar -->
+  <rect x="0" y="0" width="240" height="900" fill="#0E0E11"/>
+  <line x1="240" y1="0" x2="240" y2="900" stroke="#2A2A31"/>
+  <g transform="translate(24, 28)">
+    <path d="M12 8 L28 8 L32 14 L32 26 L28 32 L20 34 L12 32 L8 26 L8 16 Z" fill="none" stroke="#E8B84A" stroke-width="2"/>
+    <circle cx="14" cy="18" r="1.5" fill="#E8B84A"/><circle cx="26" cy="18" r="1.5" fill="#E8B84A"/>
+    <text x="48" y="26" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="2" fill="#F5EFE0">G<tspan fill="#E8B84A">D</tspan> ·BOX</text>
+  </g>
+  <line x1="24" y1="80" x2="216" y2="80" stroke="#2A2A31"/>
+  <text x="24" y="112" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— OPERACIÓN</text>
+  <text x="42" y="154" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Panel</text>
+  <text x="42" y="194" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Clientes</text>
+  <text x="42" y="234" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Membresías</text>
+  <text x="42" y="276" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Pagos</text>
+  <text x="42" y="316" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Reportes</text>
+  <text x="24" y="360" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2.5" fill="#82828A">— CONFIGURACIÓN</text>
+  <text x="42" y="392" font-family="Manrope, sans-serif" font-size="13" fill="#B8B8BE">Sucursales</text>
+  <rect x="0" y="406" width="240" height="42" fill="#151510" opacity="0.6"/>
+  <line x1="0" y1="406" x2="0" y2="448" stroke="#E8B84A" stroke-width="2"/>
+  <text x="42" y="432" font-family="Manrope, sans-serif" font-size="13" fill="#F5EFE0" font-weight="600">Contenido IA</text>
+  <rect x="188" y="420" width="20" height="18" fill="#E8B84A"/>
+  <text x="198" y="432" font-family="JetBrains Mono, monospace" font-size="10" fill="#1A1206" text-anchor="middle" font-weight="700">3</text>
+  <line x1="24" y1="820" x2="216" y2="820" stroke="#2A2A31"/>
+  <rect x="24" y="840" width="36" height="36" fill="#232329" stroke="#A6822D"/>
+  <text x="42" y="864" font-family="Bebas Neue, sans-serif" font-size="14" fill="#E8B84A" text-anchor="middle">JC</text>
+  <text x="72" y="858" font-family="Manrope, sans-serif" font-size="12" fill="#F5EFE0" font-weight="600">Joseph Chachalo</text>
+  <text x="72" y="874" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">ADMIN GENERAL</text>
+
+  <!-- Topbar -->
+  <text x="280" y="54" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">BORRADORES IA · 3 PENDIENTES DE REVISAR</text>
+  <text x="280" y="88" font-family="Bebas Neue, sans-serif" font-size="32" letter-spacing="2" fill="#F5EFE0">CONTENIDO POR IA</text>
+
+  <rect x="900" y="62" width="340" height="34" fill="#141418" stroke="#2A2A31"/>
+  <rect x="904" y="66" width="110" height="26" fill="#E8B84A"/>
+  <text x="960" y="83" font-family="JetBrains Mono, monospace" font-size="10" fill="#1A1206" text-anchor="middle" font-weight="700">PENDIENTES · 3</text>
+  <text x="1080" y="83" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" text-anchor="middle">PUBLICADOS · 24</text>
+  <text x="1195" y="83" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" text-anchor="middle">RECHAZADOS</text>
+
+  <rect x="1250" y="62" width="150" height="34" fill="#E8B84A"/>
+  <text x="1325" y="84" font-family="Bebas Neue, sans-serif" font-size="16" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">✨ GENERAR NUEVO</text>
+  <line x1="280" y1="112" x2="1400" y2="112" stroke="#2A2A31"/>
+
+  <!-- LEFT PANEL: GENERATOR -->
+  <rect x="280" y="140" width="360" height="700" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="304" y="176" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#E8B84A">— GENERADOR</text>
+  <text x="304" y="204" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0">PARÁMETROS</text>
+
+  <!-- Tipo -->
+  <text x="304" y="252" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">TIPO</text>
+  <rect x="304" y="264" width="150" height="36" fill="#1F1810" stroke="#E8B84A" stroke-width="2"/>
+  <text x="379" y="288" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.5" fill="#E8B84A" text-anchor="middle">✓ RUTINA</text>
+  <rect x="462" y="264" width="150" height="36" fill="transparent" stroke="#3A3A42"/>
+  <text x="537" y="288" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="1.5" fill="#F5EFE0" text-anchor="middle">ALIMENTACIÓN</text>
+
+  <!-- Nivel -->
+  <text x="304" y="340" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">NIVEL</text>
+  <rect x="304" y="352" width="308" height="36" fill="#141418" stroke="#2A2A31"/>
+  <text x="358" y="376" font-family="JetBrains Mono, monospace" font-size="11" fill="#82828A" text-anchor="middle">PRINC.</text>
+  <rect x="410" y="356" width="96" height="28" fill="#E8B84A"/>
+  <text x="458" y="375" font-family="JetBrains Mono, monospace" font-size="11" fill="#1A1206" text-anchor="middle" font-weight="700">INTERM.</text>
+  <text x="558" y="376" font-family="JetBrains Mono, monospace" font-size="11" fill="#82828A" text-anchor="middle">AVANZ.</text>
+
+  <!-- Duración -->
+  <text x="304" y="428" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">DURACIÓN</text>
+  <text x="304" y="458" font-family="JetBrains Mono, monospace" font-size="15" fill="#F5EFE0">45 MINUTOS</text>
+  <text x="612" y="458" font-family="Manrope, sans-serif" font-size="12" fill="#82828A" text-anchor="end">▾</text>
+  <line x1="304" y1="468" x2="612" y2="468" stroke="#3A3A42"/>
+
+  <!-- Foco -->
+  <text x="304" y="506" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">FOCO</text>
+  <rect x="304" y="518" width="98" height="26" fill="#1F1810" stroke="#A6822D"/>
+  <text x="353" y="535" font-family="JetBrains Mono, monospace" font-size="10" fill="#E8B84A" text-anchor="middle" letter-spacing="1.5">✓ SHADOW BOX</text>
+  <rect x="408" y="518" width="70" height="26" fill="#1F1810" stroke="#A6822D"/>
+  <text x="443" y="535" font-family="JetBrains Mono, monospace" font-size="10" fill="#E8B84A" text-anchor="middle" letter-spacing="1.5">✓ CARDIO</text>
+  <rect x="484" y="518" width="80" height="26" fill="transparent" stroke="#3A3A42"/>
+  <text x="524" y="535" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" text-anchor="middle" letter-spacing="1.5">+ SPARRING</text>
+
+  <rect x="304" y="550" width="60" height="26" fill="transparent" stroke="#3A3A42"/>
+  <text x="334" y="567" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" text-anchor="middle" letter-spacing="1.5">+ CORE</text>
+  <rect x="370" y="550" width="76" height="26" fill="transparent" stroke="#3A3A42"/>
+  <text x="408" y="567" font-family="JetBrains Mono, monospace" font-size="10" fill="#82828A" text-anchor="middle" letter-spacing="1.5">+ FUERZA</text>
+
+  <!-- Instrucciones -->
+  <text x="304" y="612" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#82828A">INSTRUCCIONES ADICIONALES</text>
+  <rect x="304" y="624" width="308" height="80" fill="#141418" stroke="#3A3A42"/>
+  <text x="316" y="650" font-size="12" fill="#F5EFE0">Enfocado en preparar al socio antes</text>
+  <text x="316" y="668" font-size="12" fill="#F5EFE0">de un sparring ligero. Evitar</text>
+  <text x="316" y="686" font-size="12" fill="#F5EFE0">ejercicios de alto impacto.</text>
+
+  <!-- Regenerate button -->
+  <rect x="304" y="740" width="308" height="56" fill="#E8B84A"/>
+  <text x="458" y="775" font-family="Bebas Neue, sans-serif" font-size="18" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">✨ REGENERAR CONTENIDO</text>
+
+  <!-- RIGHT PANEL: PREVIEW -->
+  <rect x="660" y="140" width="740" height="700" fill="#1B1B21" stroke="#2A2A31"/>
+  <text x="684" y="176" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#E8B84A">— BORRADOR IA</text>
+  <text x="684" y="204" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0">VISTA PREVIA · APP MÓVIL</text>
+
+  <text x="1130" y="180" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#82828A" text-anchor="end">GENERADO: <tspan fill="#E8B84A">07 SEP · 10:12</tspan></text>
+  <rect x="1240" y="184" width="136" height="24" fill="#2E2818"/>
+  <text x="1308" y="200" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#FBBF24" text-anchor="middle">◐ PENDIENTE REVISIÓN</text>
+  <line x1="660" y1="224" x2="1400" y2="224" stroke="#3A3A42"/>
+
+  <!-- Phone preview -->
+  <rect x="700" y="260" width="260" height="500" fill="#0B0B0D" stroke="#232329"/>
+  <text x="716" y="286" font-family="JetBrains Mono, monospace" font-size="8" letter-spacing="2" fill="#E8B84A">SESIÓN DE HOY · INTERMEDIO</text>
+  <text x="716" y="316" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="1.5" fill="#F5EFE0">SHADOW BOX +</text>
+  <text x="716" y="338" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="1.5" fill="#F5EFE0">CONDICIONAMIENTO</text>
+  <text x="716" y="366" font-size="11" fill="#82828A">5 rondas de shadow, trabajo de</text>
+  <text x="716" y="382" font-size="11" fill="#82828A">piernas y core. Ideal para calentar</text>
+  <text x="716" y="398" font-size="11" fill="#82828A">antes de sparring ligero.</text>
+  <line x1="716" y1="418" x2="944" y2="418" stroke="#2A2A31"/>
+
+  <text x="716" y="446" font-family="Bebas Neue, sans-serif" font-size="18" fill="#E8B84A">45</text>
+  <text x="716" y="462" font-family="JetBrains Mono, monospace" font-size="8" fill="#82828A" letter-spacing="1">MIN</text>
+  <text x="796" y="446" font-family="Bebas Neue, sans-serif" font-size="18" fill="#E8B84A">7</text>
+  <text x="796" y="462" font-family="JetBrains Mono, monospace" font-size="8" fill="#82828A" letter-spacing="1">BLOQUES</text>
+  <text x="880" y="446" font-family="Bebas Neue, sans-serif" font-size="18" fill="#E8B84A">380</text>
+  <text x="880" y="462" font-family="JetBrains Mono, monospace" font-size="8" fill="#82828A" letter-spacing="1">KCAL</text>
+
+  <text x="716" y="498" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#82828A">— BLOQUES</text>
+
+  <g font-size="10" fill="#F5EFE0" font-family="Manrope, sans-serif">
+    <text x="716" y="524">01 · Calentamiento</text>
+    <text x="944" y="524" text-anchor="end" font-family="JetBrains Mono, monospace" fill="#82828A">5 min</text>
+    <line x1="716" y1="532" x2="944" y2="532" stroke="#2A2A31"/>
+
+    <text x="716" y="550">02 · Shadow ×3 rondas</text>
+    <text x="944" y="550" text-anchor="end" font-family="JetBrains Mono, monospace" fill="#82828A">12 min</text>
+    <line x1="716" y1="558" x2="944" y2="558" stroke="#2A2A31"/>
+
+    <text x="716" y="576">03 · Footwork drills</text>
+    <text x="944" y="576" text-anchor="end" font-family="JetBrains Mono, monospace" fill="#82828A">8 min</text>
+    <line x1="716" y1="584" x2="944" y2="584" stroke="#2A2A31"/>
+
+    <text x="716" y="602">04 · Core &amp; abs</text>
+    <text x="944" y="602" text-anchor="end" font-family="JetBrains Mono, monospace" fill="#82828A">10 min</text>
+    <line x1="716" y1="610" x2="944" y2="610" stroke="#2A2A31"/>
+
+    <text x="716" y="628">05 · Enfriamiento</text>
+    <text x="944" y="628" text-anchor="end" font-family="JetBrains Mono, monospace" fill="#82828A">10 min</text>
+  </g>
+
+  <!-- RIGHT SIDE: Approval controls -->
+  <g transform="translate(996, 260)">
+    <text x="0" y="20" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">TÍTULO</text>
+    <text x="0" y="52" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1.5" fill="#F5EFE0">SHADOW BOX +</text>
+    <text x="0" y="76" font-family="Bebas Neue, sans-serif" font-size="24" letter-spacing="1.5" fill="#F5EFE0">CONDICIONAMIENTO</text>
+    <rect x="0" y="90" width="76" height="26" fill="none" stroke="#A6822D"/>
+    <text x="38" y="107" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">✎ EDITAR</text>
+
+    <text x="0" y="152" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">DESCRIPCIÓN</text>
+    <rect x="0" y="164" width="380" height="88" fill="#141418" stroke="#2A2A31"/>
+    <text x="12" y="188" font-size="12" fill="#F5EFE0">5 rondas de shadow, trabajo de piernas y</text>
+    <text x="12" y="208" font-size="12" fill="#F5EFE0">core. Ideal para calentar antes de sparring</text>
+    <text x="12" y="228" font-size="12" fill="#F5EFE0">ligero. Se enfoca en técnica de guardia y</text>
+    <text x="12" y="244" font-size="12" fill="#F5EFE0">desplazamientos.</text>
+
+    <text x="0" y="292" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2.5" fill="#82828A">MOTOR IA</text>
+    <rect x="0" y="304" width="380" height="52" fill="#141418" stroke="#2A2A31"/>
+    <circle cx="24" cy="330" r="9" fill="none" stroke="#E8B84A" stroke-width="1.5"/>
+    <path d="M18 330 L22 334 L30 326" stroke="#E8B84A" stroke-width="1.5" fill="none"/>
+    <text x="46" y="326" font-size="12" font-weight="600" fill="#F5EFE0">OpenAI · GPT-4</text>
+    <text x="46" y="344" font-family="JetBrains Mono, monospace" font-size="9" fill="#82828A" letter-spacing="1">TOKENS: 842 · COSTO: $0.021</text>
+
+    <!-- Action buttons at bottom -->
+    <line x1="0" y1="440" x2="380" y2="440" stroke="#2A2A31"/>
+    <rect x="0" y="460" width="90" height="52" fill="none" stroke="#F87171"/>
+    <text x="45" y="490" font-family="Bebas Neue, sans-serif" font-size="16" letter-spacing="2" fill="#F87171" text-anchor="middle">✕ RECHAZAR</text>
+
+    <rect x="98" y="460" width="90" height="52" fill="none" stroke="#FBBF24"/>
+    <text x="143" y="490" font-family="Bebas Neue, sans-serif" font-size="16" letter-spacing="2" fill="#FBBF24" text-anchor="middle">↻ REGENERAR</text>
+
+    <rect x="196" y="460" width="184" height="52" fill="#E8B84A"/>
+    <text x="288" y="490" font-family="Bebas Neue, sans-serif" font-size="16" letter-spacing="2" fill="#1A1206" text-anchor="middle" font-weight="700">✓ APROBAR Y PUBLICAR</text>
+  </g>
+</svg>

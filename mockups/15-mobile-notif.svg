@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812" font-family="Manrope, sans-serif">
+  <defs>
+    <linearGradient id="lockBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0B0B0D"/>
+      <stop offset="1" stop-color="#14141A"/>
+    </linearGradient>
+    <pattern id="lockStripes" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#E8B84A" stroke-opacity="0.02"/>
+    </pattern>
+  </defs>
+  <rect width="375" height="812" fill="url(#lockBg)"/>
+  <rect width="375" height="812" fill="url(#lockStripes)"/>
+
+  <!-- Big time -->
+  <text x="188" y="130" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="3" fill="#82828A" text-anchor="middle">DOMINGO 07 SEP</text>
+  <text x="188" y="230" font-family="Bebas Neue, sans-serif" font-size="88" letter-spacing="2" fill="#F5EFE0" text-anchor="middle">10:24</text>
+
+  <!-- Notification card (main) -->
+  <rect x="12" y="280" width="351" height="200" fill="#1C1C21" fill-opacity="0.85" stroke="#A6822D"/>
+
+  <!-- Notif header -->
+  <rect x="28" y="296" width="22" height="22" fill="#E8B84A"/>
+  <path d="M36 302 L44 302 L46 305 L46 311 L44 314 L40 315 L36 314 L34 311 L34 307 Z" fill="none" stroke="#1A1206" stroke-width="2.5"/>
+  <text x="60" y="312" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#F5EFE0" font-weight="600">GUANTE DORADO</text>
+  <text x="345" y="312" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1" fill="#82828A" text-anchor="end">AHORA</text>
+
+  <text x="28" y="352" font-family="Bebas Neue, sans-serif" font-size="20" letter-spacing="1" fill="#E8B84A">TU MEMBRESÍA VENCE MAÑANA</text>
+  <text x="28" y="380" font-family="Manrope, sans-serif" font-size="12" fill="#F5EFE0">Hola Marco, tu plan mensual vence el 08 de</text>
+  <text x="28" y="398" font-family="Manrope, sans-serif" font-size="12" fill="#F5EFE0">septiembre. Renueva desde la app o pasa por</text>
+  <text x="28" y="416" font-family="Manrope, sans-serif" font-size="12" fill="#F5EFE0">recepción.</text>
+
+  <line x1="28" y1="438" x2="347" y2="438" stroke="#2A2A31"/>
+  <!-- Buttons -->
+  <rect x="28" y="446" width="120" height="28" fill="none" stroke="#3A3A42"/>
+  <text x="88" y="465" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#82828A" text-anchor="middle">RECORDAR</text>
+  <rect x="156" y="446" width="192" height="28" fill="#E8B84A"/>
+  <text x="252" y="465" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#1A1206" text-anchor="middle" font-weight="700">RENOVAR AHORA</text>
+
+  <!-- Second notification (dimmed) -->
+  <rect x="20" y="500" width="335" height="70" fill="#1C1C21" fill-opacity="0.55" stroke="#2A2A31" opacity="0.7"/>
+  <rect x="34" y="516" width="18" height="18" fill="#E8B84A"/>
+  <path d="M40 520 L48 520 L50 522 L50 528 L48 531 L44 532 L40 531 L38 528 L38 524 Z" fill="none" stroke="#1A1206" stroke-width="2.5"/>
+  <text x="60" y="530" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="1.5" fill="#F5EFE0" font-weight="600">GUANTE DORADO</text>
+  <text x="340" y="530" font-family="JetBrains Mono, monospace" font-size="8" fill="#82828A" text-anchor="end">AYER</text>
+  <text x="34" y="558" font-family="Manrope, sans-serif" font-size="11" fill="#F5EFE0">Nueva rutina disponible: Shadow Box intermedio</text>
+
+  <!-- Bottom hint -->
+  <text x="188" y="778" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="2" fill="#82828A" text-anchor="middle">↑ DESLIZA PARA ABRIR</text>
+</svg>

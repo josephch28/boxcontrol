@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812" font-family="Manrope, sans-serif">
+  <!-- Dark camera background -->
+  <rect width="375" height="812" fill="#050506"/>
+  <defs>
+    <radialGradient id="camNoise1" cx="30%" cy="40%"><stop offset="0" stop-color="#FFF" stop-opacity="0.02"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>
+    <radialGradient id="camNoise2" cx="70%" cy="60%"><stop offset="0" stop-color="#FFF" stop-opacity="0.015"/><stop offset="1" stop-color="#FFF" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="375" height="812" fill="url(#camNoise1)"/>
+  <rect width="375" height="812" fill="url(#camNoise2)"/>
+
+  <!-- Status bar -->
+  <text x="32" y="30" font-family="JetBrains Mono, monospace" font-size="12" fill="#F5EFE0" font-weight="600">9:41</text>
+  <g transform="translate(310, 22)" fill="#F5EFE0">
+    <rect x="0" y="6" width="2" height="4"/><rect x="4" y="4" width="2" height="6"/><rect x="8" y="2" width="2" height="8"/><rect x="12" y="0" width="2" height="10"/>
+    <rect x="20" y="2" width="14" height="6" fill="none" stroke="#F5EFE0"/><rect x="22" y="4" width="8" height="2"/>
+  </g>
+
+  <!-- Header overlay -->
+  <rect x="20" y="66" width="200" height="34" fill="#000" fill-opacity="0.6"/>
+  <g stroke="#F5EFE0" stroke-width="1.5" fill="none" transform="translate(30, 76)">
+    <path d="M0 4 L14 4 M0 10 L14 10 M0 16 L14 16"/>
+  </g>
+  <text x="52" y="87" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#F5EFE0">CONTROL DE INGRESO</text>
+
+  <rect x="290" y="66" width="65" height="34" fill="#000" fill-opacity="0.6"/>
+  <text x="322" y="88" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1.5" fill="#E8B84A" text-anchor="middle">NORTE</text>
+
+  <!-- Viewfinder -->
+  <g transform="translate(68, 260)">
+    <!-- Corner markers -->
+    <path d="M0 0 L32 0 M0 0 L0 32" stroke="#E8B84A" stroke-width="3" fill="none"/>
+    <path d="M240 0 L208 0 M240 0 L240 32" stroke="#E8B84A" stroke-width="3" fill="none"/>
+    <path d="M0 240 L32 240 M0 240 L0 208" stroke="#E8B84A" stroke-width="3" fill="none"/>
+    <path d="M240 240 L208 240 M240 240 L240 208" stroke="#E8B84A" stroke-width="3" fill="none"/>
+    <!-- Scan line -->
+    <line x1="8" y1="120" x2="232" y2="120" stroke="#E8B84A" stroke-width="1"/>
+    <!-- QR peek (faded) -->
+    <g transform="translate(50, 50)" opacity="0.35">
+      <rect width="140" height="140" fill="none"/>
+      <g fill="#F5EFE0">
+        <rect x="6" y="6" width="30" height="30"/>
+        <rect x="12" y="12" width="18" height="18" fill="#050506"/>
+        <rect x="17" y="17" width="8" height="8"/>
+        <rect x="104" y="6" width="30" height="30"/>
+        <rect x="110" y="12" width="18" height="18" fill="#050506"/>
+        <rect x="115" y="17" width="8" height="8"/>
+        <rect x="6" y="104" width="30" height="30"/>
+        <rect x="12" y="110" width="18" height="18" fill="#050506"/>
+        <rect x="17" y="115" width="8" height="8"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom text -->
+  <text x="188" y="640" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0" text-anchor="middle">ENCUADRE EL QR</text>
+  <text x="188" y="668" font-family="Bebas Neue, sans-serif" font-size="22" letter-spacing="2" fill="#F5EFE0" text-anchor="middle">DEL SOCIO</text>
+
+  <!-- Status pill -->
+  <rect x="130" y="700" width="116" height="26" fill="none" stroke="#A6822D"/>
+  <rect x="130" y="700" width="116" height="26" fill="#E8B84A" fill-opacity="0.1"/>
+  <circle cx="146" cy="713" r="3" fill="#E8B84A"/>
+  <text x="200" y="718" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="2" fill="#E8B84A" text-anchor="middle">ESCANEANDO</text>
+</svg>
