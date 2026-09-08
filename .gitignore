@@ -31,3 +31,7 @@ Thumbs.db
 
 # Graphify
 graphify-out/
+
+# Claude Code (config y contexto local, no compartido con el equipo)
+.claude/
+CLAUDE.md
