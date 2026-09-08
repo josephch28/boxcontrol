@@ -28,3 +28,6 @@ pnpm-debug.log*
 Thumbs.db
 ~$*.docx
 *.tmp
+
+# Graphify
+graphify-out/
