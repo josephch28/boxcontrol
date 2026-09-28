@@ -1,79 +1,93 @@
 # 🥊 BoxControl — Sistema de Gestión de Membresías para Gimnasio de Boxeo
 
 > **"Pelea sin papel."**  
-> Plataforma web y móvil para digitalizar y centralizar el control de membresías, cobros, aforo y acceso en un gimnasio de boxeo con dos sucursales.
+> Plataforma web y móvil integral para digitalizar, automatizar y centralizar el control de membresías, caja y cobros, aforo y acceso en un club de boxeo con múltiples sucursales.
 
 ---
 
 ## 📌 Datos de la Asignatura y Equipo
+* **Institución:** Universidad / Facultad de Ingeniería de Sistemas y Software
 * **Asignatura:** Aplicaciones Web y Móviles (6to Semestre)
 * **Equipo de Desarrollo (Grupo 4):**
   * **Chachalo Joseph** — *Scrum Master & Backend Architect*
   * **Jiron Jonathan** — *Product Owner & Frontend Web Lead*
   * **Paredes Robert** — *Mobile Lead & DevOps / QA Lead*
-* **Periodo:** 10 Semanas (5 Sprints Scrum de 2 semanas)
 
 ---
 
 ## 🎯 Descripción del Proyecto
-Actualmente, el registro de clientes del gimnasio se realiza de forma manual en cuadernos físicos. Esta modalidad dificulta:
-* Conocer con exactitud la cantidad de clientes activos por sede (Sede Norte y Sede Sur).
-* Detectar a tiempo membresías vencidas o por vencer para gestionar el cobro oportuno.
-* Controlar el ingreso de socios y registrar sus asistencias en tiempo real.
-* Generar reportes contables e indicadores para la toma de decisiones.
+Tradicionalmente, la administración de academias y clubes de boxeo se realiza en cuadernos físicos o planillas manuales, lo que causa pérdidas financieras por socios que entrenan con membresías vencidas, descuadres de caja entre turnos, falta de control en el aforo máximo y ausencia de reportes contables inmediatos.
 
-**BoxControl** resuelve esto mediante un ecosistema digital compuesto por:
-1. **API REST Centralizada (Node.js + Express):** Control de acceso por roles (RBAC), seguridad con JWT/bcrypt y documentación interactiva en Swagger UI.
-2. **Capa de Persistencia (MySQL en XAMPP):** Base de datos relacional con 9 tablas modeladas con Sequelize ORM.
-3. **Plataforma Web Administrativa (React + Vite + Tailwind CSS):** Para recepcionistas y administradores (Gestión de sucursales, clientes, membresías, cobros y dashboard).
-4. **Aplicación Móvil para Clientes (React Native Expo):** Carnet digital con código QR único, control de ingreso, consulta de vigencia, notificaciones push e integración de rutinas con OpenAI API.
+**BoxControl** resuelve esto a través de un ecosistema digital moderno y robusto compuesto por:
+1. **API RESTful Centralizada (Node.js + Express):** Control de acceso basado en roles (**RBAC**), seguridad con **JWT** y **bcryptjs**, transacciones **ACID** con **Sequelize ORM** y documentación interactiva en **Swagger UI** (OpenAPI 3.0).
+2. **Capa de Persistencia (MySQL en XAMPP):** Base de datos relacional con 9 tablas normalizadas (3FN), restricciones de clave foránea y borrado lógico para auditoría.
+3. **Plataforma Web SPA (React 18 + Vite + Tailwind CSS):** Interfaz para recepcionistas y administradores con validaciones en tiempo real, emisión de recibos y exportación oficial de reportes a PDF.
+4. **Control de Acceso Presencial (Check-In con QR / Cédula):** Simulación de torniquete con validación instantánea de vigencia, prevención de doble lectura (*debounce* de 3 min) y bloqueo de usuarios inactivos o morosos.
+5. **Motor de Inteligencia Artificial para Boxeo:** Generador experto de rutinas dinámicas por nivel y planes de nutrición deportiva para combate.
+
+---
+
+## 🚀 Módulos y Funcionalidades del Sistema
+
+* **📊 Dashboard Gerencial:** 4 KPIs en tiempo real (Socios activos, Por vencer en 7 días, Ingresos del mes, Asistencias hoy y aforo), gráfico interactivo SVG de recaudación diaria con curva de tendencia y tabla de ingresos en vivo.
+* **🥊 Gestión de Socios (Clientes):** Listado con filtros (`ACTIVOS`, `POR VENCER`, `NUEVOS`), buscador universal en tiempo real, validación de cédula ecuatoriana con algoritmo **Módulo 10**, unicidad de correo y generación automática de **carnet digital con código QR único**.
+* **💰 Caja y Cobros (Pagos):** Registro de cobros con buscador predictivo en tiempo real de socios (evita selects interminables), cálculo automático de vigencias, emisión de **Recibos de Caja Foliados** (`R-0000XX`) e historial de pagos.
+* **🛡️ Control de Acceso y Aforo (Check-In):** Lector rápido de QR o ingreso manual de cédula. Autoriza o deniega el ingreso en milisegundos (`HTTP 200` o `HTTP 403`), mostrando días de vigencia restantes y controlando el aforo de la sede.
+* **📈 Reportes Financieros Oficiales (RF-W09):** Filtrado por rangos de fechas (predefinidos o personalizados) y sedes, desglose de ingresos por plan y exportación profesional a **PDF con membrete institucional**, metadatos de auditoría y tablas formateadas (`jsPDF` + `AutoTable`).
+* **🏢 Gestión de Sucursales:** Catálogo de sedes (Norte y Sur), horarios, capacidades de aforo y métricas dinámicas de recaudación mensual por sucursal.
+* **📋 Catálogo de Membresías:** Planes configurables (Básico, Intermedio, Pro / Competición), duración en días, precios y control de estados activo/inactivo.
+* **🤖 Boxing Engine (Contenido IA):** Generación de rutinas de boxeo por rounds estructurados (cuerda, sombras tácticas, sacos de golpeo pesado, core) y pautas nutricionales de corte de peso.
+* **🔒 Aislamiento Multi-Tenant (RBAC):**
+  - **Administrador:** Visualización global consolidada (`TODAS`), cambio dinámico de sedes y acceso exclusivo al menú de Configuración.
+  - **Recepcionista:** Operación fijada a su sede asignada (badge estático, sin permisos para cambiar de sede ni acceder a la configuración de planes o sucursales, forzado a nivel de middleware en el backend).
 
 ---
 
 ## 🏗️ Arquitectura y Tecnologías
-* **Backend:** Node.js, Express, Sequelize ORM, MySQL (XAMPP / phpMyAdmin).
-* **Seguridad:** JSON Web Tokens (JWT), bcryptjs (hashing de contraseñas con salt).
-* **Documentación API:** Swagger UI (`swagger-ui-express` + `swagger-jsdoc`).
-* **Frontend Web:** React 18, Vite, Tailwind CSS, Axios, Lucide React Icons.
-* **Móvil (Sprint 3):** React Native, Expo, `react-native-qrcode-svg`, `expo-camera`, Expo Notifications / FCM.
-* **Inteligencia Artificial (Sprint 4):** OpenAI API (generación de rutinas de boxeo y planes de nutrición deportiva).
+
+| Capa | Tecnologías Utilizadas |
+| :--- | :--- |
+| **Frontend Web** | React 18, Vite, Tailwind CSS, Lucide React Icons, Axios, jsPDF, AutoTable |
+| **Backend API** | Node.js, Express, Sequelize ORM, JWT (`jsonwebtoken`), `bcryptjs`, CORS |
+| **Base de Datos** | MySQL 8.0 (XAMPP / phpMyAdmin), 9 tablas normalizadas |
+| **Documentación API** | Swagger UI (`swagger-ui-express`, `swagger-jsdoc`) con OpenAPI 3.0 |
+| **Herramientas de Soporte** | Git, GitHub, Scripts BAT de inicio rápido |
 
 ---
 
 ## 📁 Estructura del Repositorio
+
 ```text
 boxcontrol/
 ├── backend/                    # Servidor API REST (Node.js + Express)
 │   ├── src/
 │   │   ├── config/database.js  # Conexión Sequelize a MySQL
-│   │   ├── controllers/        # Controladores (auth, sucursal, etc.)
+│   │   ├── controllers/        # Controladores (auth, clientes, pagos, asistencias, reportes, etc.)
 │   │   ├── docs/swagger.js     # Configuración Swagger OpenAPI 3.0
-│   │   ├── middlewares/        # Middlewares (authMiddleware, roles)
-│   │   ├── models/             # Modelos relacionales Sequelize
-│   │   ├── routes/             # Rutas y endpoints documentados
-│   │   ├── seed.js             # Seeder con datos de prueba
-│   │   └── server.js           # Punto de entrada del servidor
+│   │   ├── middlewares/        # Middlewares (verificarToken, esAdmin, restringirSucursal)
+│   │   ├── models/             # Modelos relacionales Sequelize (Usuario, Cliente, Pago, etc.)
+│   │   ├── routes/             # Enrutadores de la API REST
+│   │   ├── seed.js             # Seeder con datos de prueba realistas
+│   │   └── server.js           # Punto de entrada del servidor (puerto 4000)
 │   ├── .env.example            # Plantilla de variables de entorno
 │   └── package.json
-├── frontend-web/               # SPA Administrativa (React + Vite)
+├── frontend-web/               # SPA Administrativa (React + Vite + Tailwind CSS)
 │   ├── src/
-│   │   ├── api/axios.js        # Cliente HTTP con interceptores JWT
-│   │   ├── components/         # Layout (Sidebar, Topbar, etc.)
-│   │   ├── context/            # AuthContext (Estado de autenticación)
-│   │   ├── pages/              # Vistas (Login, Dashboard, Sucursales)
-│   │   ├── App.jsx
-│   │   └── index.css           # Estilos con Tailwind CSS
+│   │   ├── api/axios.js        # Instancia Axios con interceptores JWT y manejo de 401
+│   │   ├── components/         # Modales (Check-In, Pagos), Gráficos SVG, Sidebar, Topbar
+│   │   ├── context/            # AuthContext (Estado global de sesión y usuario)
+│   │   ├── pages/              # Vistas principales (Login, Dashboard, Clientes, Pagos, etc.)
+│   │   ├── utils/validators.js # Validadores en tiempo real (Cédula ecuatoriana Módulo 10, etc.)
+│   │   ├── App.jsx             # Enrutador principal de vistas y guardas de navegación
+│   │   └── index.css           # Estilos globales y paleta de colores institucional
 │   └── package.json
 ├── database/
-│   └── boxcontrol_db.sql       # Script SQL para importar en MySQL
-├── docs/                       # Documentación formal del proyecto
-│   ├── Propuesta_BoxControl.pdf
-│   ├── Planificacion_Proyecto_BoxControl.pdf
-│   └── Informe_Primer_Avance_BoxControl.pdf
-├── mockups/                    # 16 Mockups en SVG de alta fidelidad
-├── iniciar_todo.bat            # Script de 1 clic para iniciar todo
-├── iniciar_backend.bat         # Inicia el backend (puerto 4000)
-├── iniciar_frontend.bat        # Inicia el frontend (puerto 5173)
+│   └── boxcontrol_db.sql       # Script SQL completo de estructura y datos iniciales
+├── docs/                       # Documentación formal de la asignatura
+├── GUIA_PRESENTACION.md        # Guía paso a paso y guión técnico para la sustentación
+├── iniciar_todo.bat            # Script de 1 clic para iniciar Backend y Frontend simultáneamente
+├── iniciar_backend.bat         # Inicia el servidor backend en http://localhost:4000
+├── iniciar_frontend.bat        # Inicia el cliente frontend en http://localhost:5173
 └── README.md
 ```
 
@@ -82,54 +96,56 @@ boxcontrol/
 ## ⚡ Instalación y Puesta en Marcha
 
 ### 1. Requisitos Previos
-* Node.js v18 o superior instalado.
-* XAMPP (Apache y MySQL activos).
+* **Node.js:** v18.0.0 o superior ([Descargar Node.js](https://nodejs.org/)).
+* **XAMPP:** Con módulos Apache y MySQL activos ([Descargar XAMPP](https://www.apachefriends.org/)).
 
-### 2. Base de Datos
-1. Abre **XAMPP Control Panel** e inicia el servicio **MySQL**.
-2. Abre **phpMyAdmin** (`http://localhost/phpmyadmin`) o tu terminal de MySQL y ejecuta el script:
+### 2. Configurar la Base de Datos
+1. Inicia **MySQL** desde el panel de control de XAMPP.
+2. Abre tu terminal en la raíz del proyecto y ejecuta:
    ```bash
    mysql -u root < database/boxcontrol_db.sql
    ```
-   *(Esto crea la base de datos `boxcontrol_db` con sus 9 tablas y datos iniciales).*
+   *(También puedes importar el archivo `database/boxcontrol_db.sql` directamente desde phpMyAdmin en `http://localhost/phpmyadmin`).*
 
-### 3. Backend (API REST)
+### 3. Iniciar el Backend (API REST)
 ```bash
 cd backend
 npm install
-npm run seed     # Poblar base de datos con roles, sucursales y usuarios
-npm start        # Iniciar servidor en http://localhost:4000
+npm run seed       # Poblar la base de datos con cuentas y transacciones de prueba
+npm start          # Iniciar servidor en http://localhost:4000
 ```
-* **Swagger UI interactivo:** `http://localhost:4000/api-docs`
-* **Healthcheck:** `http://localhost:4000/api/health`
+* **Swagger UI interactivo:** [http://localhost:4000/api-docs](http://localhost:4000/api-docs)
+* **Healthcheck:** [http://localhost:4000/api/health](http://localhost:4000/api/health)
 
-### 4. Frontend Web
+### 4. Iniciar el Frontend Web
+En una nueva terminal:
 ```bash
 cd frontend-web
 npm install
-npm run dev      # Iniciar en http://localhost:5173
+npm run dev        # Iniciar aplicación en http://localhost:5173
 ```
 
----
-
-## 🔑 Credenciales de Prueba (Seeders)
-
-| Rol | Correo Electrónico | Contraseña | Sucursal Asignada |
-| :--- | :--- | :--- | :--- |
-| **Administrador General** | `admin@boxcontrol.com` | `Admin123*` | Sede Norte (Acceso Global) |
-| **Recepcionista Norte** | `recepcion.norte@boxcontrol.com` | `Recep123*` | Sucursal Norte - Gym Central |
-| **Recepcionista Sur** | `recepcion.sur@boxcontrol.com` | `Recep123*` | Sucursal Sur - Boxing Club |
+> 💡 **Tip:** En Windows puedes hacer doble clic sobre el archivo `iniciar_todo.bat` en la raíz para arrancar ambos servicios automáticamente.
 
 ---
 
-## 🗓️ Cronograma de Sprints (10 Semanas)
-* **Sprint 1 (Semanas 1-2) — [20%]:** Cimientos Arquitectónicos, BD MySQL, Login JWT y CRUD Sucursales (RF-W01, RF-W10). *(Entregado)*
-* **Sprint 2 (Semanas 3-4) — [40%]:** Gestión de Clientes, Tipos de Membresía y Módulo de Cobros (RF-W02, RF-W03, RF-W04, RF-W05, RF-W11).
-* **Sprint 3 (Semanas 5-6) — [65%]:** Aplicación Móvil en Expo, Carnet Digital QR y Control de Asistencia (RF-M01, RF-M02, RF-M03, RF-M04, RF-M06).
-* **Sprint 4 (Semanas 7-8) — [85%]:** Módulo de IA (OpenAI API), Notificaciones Push de Vencimiento e Historiales (RF-W12, RF-M05, RF-M07, RF-M08).
-* **Sprint 5 (Semanas 9-10) — [100%]:** Dashboards Analíticos (Chart.js), Reportes Financieros en PDF, QA Integral y Sustentación Final (RF-W06, RF-W07, RF-W08, RF-W09).
+## 🔑 Credenciales de Prueba (Para Evaluación y Testeo)
+
+| Rol / Perfil | Correo Electrónico | Contraseña | Sede Asignada | Alcance |
+| :--- | :--- | :--- | :--- | :--- |
+| **Administrador General** | `admin@boxcontrol.com` | `Admin123*` | Sede Norte | Acceso global a todas las sedes y configuración |
+| **Recepcionista Norte** | `recepcion.norte@boxcontrol.com` | `Recep123*` | Sede Norte | Operación fija a Sede Norte (Sin configuración) |
+| **Recepcionista Sur** | `recepcion.sur@boxcontrol.com` | `Recep123*` | Sede Sur | Operación fija a Sede Sur (Sin configuración) |
+
+---
+
+## 🎓 Guía para Sustentación ante el Docente
+Para preparar la defensa técnica del proyecto con el docente, revisa el archivo dedicado:
+👉 **[GUIA_PRESENTACION.md](./GUIA_PRESENTACION.md)**  
+*(Contiene el discurso de apertura, justificación de arquitectura, guión de demostración en vivo paso a paso y respuestas a posibles preguntas técnicas del evaluador).*
 
 ---
 
 ## 📜 Licencia
 Proyecto desarrollado con fines académicos para la carrera de Ingeniería de Software / Sistemas — 2026.
+Club de Boxeo *"Guante Dorado"* · BoxControl v1.0.
