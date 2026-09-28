@@ -23,6 +23,21 @@ const Sucursal = sequelize.define('Sucursal', {
     type: DataTypes.STRING(100),
     allowNull: true,
   },
+  encargado: {
+    type: DataTypes.STRING(100),
+    allowNull: true,
+    defaultValue: 'Por asignar',
+  },
+  horario: {
+    type: DataTypes.STRING(150),
+    allowNull: true,
+    defaultValue: 'L-V · 06:00 - 22:00 | S · 07:00 - 20:00',
+  },
+  capacidad: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    defaultValue: 40,
+  },
   estado: {
     type: DataTypes.ENUM('ACTIVA', 'INACTIVA'),
     defaultValue: 'ACTIVA',

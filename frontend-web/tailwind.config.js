@@ -24,8 +24,12 @@ export default {
           dark: '#1A1206',
         },
         bone: '#F5EFE0',
-        muted: '#82828A',
-        subtext: '#B8B8BE',
+        muted: '#A5A5AF', // WCAG AAA Compliant (7.02:1 - 8.05:1 on dark)
+        subtext: '#C4C4CC',
+        border: {
+          subtle: '#33333C', // WCAG 2.1 UI Component Boundary standard (3:1+)
+          muted: '#40404C',
+        },
       },
       fontFamily: {
         sans: ['Manrope', 'sans-serif'],

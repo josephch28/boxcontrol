@@ -70,8 +70,23 @@ const esAdminORecepcionista = (req, res, next) => {
   next();
 };
 
+// Middleware para forzar la sucursal del recepcionista si no es admin (Multi-tenant sucursal scoping)
+const restringirSucursalRecepcionista = (req, res, next) => {
+  if (req.usuario && req.usuario.rol?.nombre === 'RECEPCIONISTA') {
+    const sucursalId = String(req.usuario.sucursalId || (req.usuario.sucursal && req.usuario.sucursal.id) || 1);
+    if (!req.query) req.query = {};
+    req.query.sucursalId = sucursalId;
+    if (req.body) {
+      if (req.body.sucursalId !== undefined) req.body.sucursalId = Number(sucursalId);
+      if (req.body.sucursalOrigenId !== undefined) req.body.sucursalOrigenId = Number(sucursalId);
+    }
+  }
+  next();
+};
+
 module.exports = {
   verificarToken,
   esAdmin,
   esAdminORecepcionista,
+  restringirSucursalRecepcionista,
 };

@@ -7,6 +7,7 @@ const TipoMembresia = require('./TipoMembresia');
 const Membresia = require('./Membresia');
 const Pago = require('./Pago');
 const Asistencia = require('./Asistencia');
+const ContenidoIA = require('./ContenidoIA');
 
 // Asociaciones de Usuario y Rol
 Rol.hasMany(Usuario, { foreignKey: 'rol_id', as: 'usuarios' });
@@ -54,6 +55,10 @@ Asistencia.belongsTo(Cliente, { foreignKey: 'cliente_id', as: 'cliente' });
 Sucursal.hasMany(Asistencia, { foreignKey: 'sucursal_id', as: 'asistencias' });
 Asistencia.belongsTo(Sucursal, { foreignKey: 'sucursal_id', as: 'sucursal' });
 
+// Asociaciones de Contenido IA
+Usuario.hasMany(ContenidoIA, { foreignKey: 'creado_por', as: 'contenidosCreados' });
+ContenidoIA.belongsTo(Usuario, { foreignKey: 'creado_por', as: 'autor' });
+
 module.exports = {
   sequelize,
   Rol,
@@ -64,4 +69,5 @@ module.exports = {
   Membresia,
   Pago,
   Asistencia,
+  ContenidoIA,
 };

@@ -1,10 +1,7 @@
 const swaggerJsDoc = require('swagger-jsdoc');
 const path = require('path');
 
-// En Windows, swagger-jsdoc (glob) requiere forward slashes ('/')
-const routesGlob = path.join(__dirname, '../routes/*.js').replace(/\\/g, '/');
-const authFile = path.join(__dirname, '../routes/authRoutes.js').replace(/\\/g, '/');
-const sucursalFile = path.join(__dirname, '../routes/sucursalRoutes.js').replace(/\\/g, '/');
+const getRoutePath = (filename) => path.join(__dirname, '../routes', filename).replace(/\\/g, '/');
 
 const swaggerOptions = {
   definition: {
@@ -12,9 +9,9 @@ const swaggerOptions = {
     info: {
       title: 'BoxControl API REST',
       version: '1.0.0',
-      description: 'Documentación oficial de la API de BoxControl — Sistema de Gestión de Membresías para Gimnasio de Boxeo.\n\n**Materia:** Aplicaciones Web y Móviles (6to Semestre)\n\n**Grupo 4:** Chachalo Joseph, Jiron Jonathan, Paredes Robert.',
+      description: 'Documentación interactiva de la API REST de BoxControl — Sistema de Gestión de Membresías para Gimnasio de Boxeo "Guante Dorado".\n\n**Materia:** Aplicaciones Web y Móviles (6to Semestre)\n\n**Equipo Grupo 4:** Chachalo Joseph, Jiron Jonathan, Paredes Robert.',
       contact: {
-        name: 'Soporte Técnico Grupo 4',
+        name: 'BoxControl Team - Grupo 4',
       },
     },
     servers: [
@@ -29,12 +26,24 @@ const swaggerOptions = {
           type: 'http',
           scheme: 'bearer',
           bearerFormat: 'JWT',
-          description: 'Introduce tu token JWT sin comillas ni prefijos.',
+          description: 'Introduce tu token JWT obtenido en /api/auth/login.',
         },
       },
     },
   },
-  apis: [routesGlob, authFile, sucursalFile],
+  apis: [
+    getRoutePath('*.js'),
+    getRoutePath('authRoutes.js'),
+    getRoutePath('sucursalRoutes.js'),
+    getRoutePath('clienteRoutes.js'),
+    getRoutePath('tipoMembresiaRoutes.js'),
+    getRoutePath('membresiaRoutes.js'),
+    getRoutePath('pagoRoutes.js'),
+    getRoutePath('dashboardRoutes.js'),
+    getRoutePath('reporteRoutes.js'),
+    getRoutePath('contenidoIARoutes.js'),
+    getRoutePath('asistenciaRoutes.js'),
+  ],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);

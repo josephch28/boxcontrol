@@ -1,15 +1,60 @@
-const { Sucursal, Usuario } = require('../models');
+const { Op } = require('sequelize');
+const { Sucursal, Usuario, Cliente, Pago, Asistencia, sequelize } = require('../models');
 
-// Listar todas las sucursales (RF-W10)
+// Listar todas las sucursales con métricas reales y dinámicas (RF-W10)
 const getSucursales = async (req, res) => {
   try {
     const sucursales = await Sucursal.findAll({
       order: [['id', 'ASC']],
     });
+
+    const hoy = new Date();
+    const inicioMes = new Date(hoy.getFullYear(), hoy.getMonth(), 1);
+    const hace7Dias = new Date();
+    hace7Dias.setDate(hace7Dias.getDate() - 7);
+
+    // Calcular métricas reales por sucursal
+    const dataConMetricas = await Promise.all(
+      sucursales.map(async (s) => {
+        const plain = s.toJSON();
+
+        // 1. Socios registrados en la sucursal
+        const sociosCount = await Cliente.count({
+          where: { sucursalOrigenId: s.id },
+        });
+
+        // 2. Ingresos recaudados en el mes actual en esta sucursal
+        const pagosMes = await Pago.findAll({
+          where: {
+            sucursalId: s.id,
+            fechaPago: { [Op.gte]: inicioMes },
+          },
+          attributes: [[sequelize.fn('SUM', sequelize.col('monto')), 'totalMes']],
+        });
+        const ingresosMesVal = Number(pagosMes[0]?.dataValues?.totalMes || 0);
+
+        // 3. Asistencias de la última semana en esta sucursal
+        const asistenciasSemana = await Asistencia.count({
+          where: {
+            sucursalId: s.id,
+            fechaHora: { [Op.gte]: hace7Dias },
+          },
+        });
+
+        return {
+          ...plain,
+          sociosCount,
+          ingresosMes: `$${ingresosMesVal.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`,
+          ingresosMesVal,
+          asistenciasSemana,
+        };
+      })
+    );
+
     return res.status(200).json({
       success: true,
-      count: sucursales.length,
-      data: sucursales,
+      count: dataConMetricas.length,
+      data: dataConMetricas,
     });
   } catch (error) {
     console.error('Error al listar sucursales:', error);
@@ -50,7 +95,7 @@ const getSucursalById = async (req, res) => {
 // Crear nueva sucursal (RF-W10 - Solo Admin)
 const createSucursal = async (req, res) => {
   try {
-    const { nombre, direccion, telefono, email, estado } = req.body;
+    const { nombre, direccion, telefono, email, encargado, horario, capacidad, estado } = req.body;
 
     if (!nombre || !direccion || !telefono) {
       return res.status(400).json({
@@ -60,10 +105,13 @@ const createSucursal = async (req, res) => {
     }
 
     const nuevaSucursal = await Sucursal.create({
-      nombre,
-      direccion,
-      telefono,
-      email,
+      nombre: nombre.trim(),
+      direccion: direccion.trim(),
+      telefono: telefono.trim(),
+      email: email ? email.trim() : null,
+      encargado: encargado ? encargado.trim() : 'Por asignar',
+      horario: horario ? horario.trim() : 'L-V · 06:00 - 22:00 | S · 07:00 - 20:00',
+      capacidad: capacidad ? Number(capacidad) : 40,
       estado: estado || 'ACTIVA',
     });
 
@@ -86,7 +134,7 @@ const createSucursal = async (req, res) => {
 const updateSucursal = async (req, res) => {
   try {
     const { id } = req.params;
-    const { nombre, direccion, telefono, email, estado } = req.body;
+    const { nombre, direccion, telefono, email, encargado, horario, capacidad, estado } = req.body;
 
     const sucursal = await Sucursal.findByPk(id);
     if (!sucursal) {
@@ -97,10 +145,13 @@ const updateSucursal = async (req, res) => {
     }
 
     await sucursal.update({
-      nombre: nombre || sucursal.nombre,
-      direccion: direccion || sucursal.direccion,
-      telefono: telefono || sucursal.telefono,
-      email: email !== undefined ? email : sucursal.email,
+      nombre: nombre ? nombre.trim() : sucursal.nombre,
+      direccion: direccion ? direccion.trim() : sucursal.direccion,
+      telefono: telefono ? telefono.trim() : sucursal.telefono,
+      email: email !== undefined ? (email ? email.trim() : null) : sucursal.email,
+      encargado: encargado !== undefined ? encargado.trim() : sucursal.encargado,
+      horario: horario !== undefined ? horario.trim() : sucursal.horario,
+      capacidad: capacidad !== undefined ? Number(capacidad) : sucursal.capacidad,
       estado: estado || sucursal.estado,
     });
 

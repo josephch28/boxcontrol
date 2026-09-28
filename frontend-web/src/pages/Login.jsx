@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { ArrowRight, AlertCircle, Loader2 } from 'lucide-react';
+import { ArrowRight, AlertCircle, Loader2, CheckCircle2 } from 'lucide-react';
+import { validarEmail } from '../utils/validators';
 
 export default function Login() {
   const { login, loading, error, setError } = useAuth();
   const [email, setEmail] = useState('admin@boxcontrol.com');
   const [password, setPassword] = useState('Admin123*');
+  const [touched, setTouched] = useState({ email: false, password: false });
+
+  const emailRes = touched.email ? validarEmail(email) : null;
+  const emailError = emailRes && !emailRes.isValid ? emailRes.error : null;
+  const passwordError = touched.password && (!password || password.length < 6) ? 'La contraseña debe contener al menos 6 caracteres' : null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
-      setError('Por favor complete todos los campos.');
+    setTouched({ email: true, password: true });
+    const errMail = validarEmail(email);
+    if (!errMail.isValid) {
+      setError(errMail.error);
+      return;
+    }
+    if (!password || password.length < 6) {
+      setError('La contraseña debe contener al menos 6 caracteres.');
       return;
     }
     await login(email, password);
@@ -19,6 +31,7 @@ export default function Login() {
   const handleQuickFill = (quickEmail, quickPass) => {
     setEmail(quickEmail);
     setPassword(quickPass);
+    setTouched({ email: true, password: true });
     if (error) setError(null);
   };
 
@@ -97,46 +110,82 @@ export default function Login() {
         {error && (
           <div className="mb-6 p-3 bg-red-950/40 border-l-2 border-red-500 text-red-300 text-xs flex items-center gap-2">
             <AlertCircle size={16} className="shrink-0" />
-            <span>{error}</span>
+            <span>{typeof error === 'string' ? error : (error?.error || error?.message || 'Error al iniciar sesión')}</span>
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Email Field */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[#82828A] mb-1 uppercase">
-              Correo Electrónico
-            </label>
+            <div className="flex justify-between items-center mb-1">
+              <label className="block font-mono text-[10px] tracking-[0.25em] text-[#82828A] uppercase">
+                Correo Electrónico
+              </label>
+              {touched.email && !emailError && (
+                <span className="text-[#4ADE80] font-mono text-[10px] flex items-center gap-1">
+                  <CheckCircle2 size={11} /> RFC Válido
+                </span>
+              )}
+            </div>
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (!touched.email) setTouched((prev) => ({ ...prev, email: true }));
+              }}
+              onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
               required
               placeholder="nombre@guantedorado.ec"
-              className="w-full bg-transparent border-b border-[#3A3A42] py-2.5 text-sm text-[#F5EFE0] focus:outline-none focus:border-[#E8B84A] transition-colors"
+              className={`w-full bg-transparent border-b py-2.5 text-sm text-[#F5EFE0] focus:outline-none transition-colors ${
+                emailError ? 'border-red-500' : 'border-[#3A3A42] focus:border-[#E8B84A]'
+              }`}
             />
+            {emailError && (
+              <span className="text-red-400 font-mono text-[10px] mt-1.5 block flex items-center gap-1">
+                <AlertCircle size={10} /> {emailError}
+              </span>
+            )}
           </div>
 
           {/* Password Field */}
           <div>
-            <label className="block font-mono text-[10px] tracking-[0.25em] text-[#82828A] mb-1 uppercase">
-              Contraseña
-            </label>
+            <div className="flex justify-between items-center mb-1">
+              <label className="block font-mono text-[10px] tracking-[0.25em] text-[#82828A] uppercase">
+                Contraseña
+              </label>
+              {touched.password && !passwordError && (
+                <span className="text-[#4ADE80] font-mono text-[10px] flex items-center gap-1">
+                  <CheckCircle2 size={11} /> Longitud adecuada
+                </span>
+              )}
+            </div>
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                if (!touched.password) setTouched((prev) => ({ ...prev, password: true }));
+              }}
+              onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
               required
               placeholder="••••••••••••"
-              className="w-full bg-transparent border-b border-[#3A3A42] py-2.5 text-sm text-[#F5EFE0] focus:outline-none focus:border-[#E8B84A] transition-colors"
+              className={`w-full bg-transparent border-b py-2.5 text-sm text-[#F5EFE0] focus:outline-none transition-colors ${
+                passwordError ? 'border-red-500' : 'border-[#3A3A42] focus:border-[#E8B84A]'
+              }`}
             />
+            {passwordError && (
+              <span className="text-red-400 font-mono text-[10px] mt-1.5 block flex items-center gap-1">
+                <AlertCircle size={10} /> {passwordError}
+              </span>
+            )}
           </div>
 
           {/* Submit Button */}
           <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || (touched.email && !!emailError) || (touched.password && !!passwordError)}
               className="w-full sm:w-auto px-8 py-3.5 bg-[#E8B84A] hover:bg-[#D4A538] text-[#1A1206] font-display text-lg tracking-[0.15em] font-bold flex items-center justify-center gap-4 transition-all disabled:opacity-50"
             >
               <span>{loading ? 'INGRESANDO...' : 'INGRESAR AL RING'}</span>
