@@ -7,6 +7,10 @@ async function seedDatabase() {
     await sequelize.authenticate();
     console.log('✓ Conexión a MySQL exitosa.');
 
+    // Sincronizar esquemas (crea las tablas automáticamente en MySQL si no existen)
+    await sequelize.sync();
+    console.log('✓ Estructura de tablas sincronizada mediante Sequelize ORM.');
+
     // 1. Roles
     const [rolAdmin] = await Rol.findOrCreate({
       where: { nombre: 'ADMINISTRADOR' },
