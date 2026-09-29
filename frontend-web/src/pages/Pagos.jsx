@@ -14,6 +14,7 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
     return 'TODAS';
   });
   const [filterMetodo, setFilterMetodo] = useState('TODOS');
+  const [filterClienteEstado, setFilterClienteEstado] = useState('ACTIVOS'); // 'ACTIVOS' | 'TODOS'
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -44,6 +45,9 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
       if (filterMetodo !== 'TODOS') {
         params.metodoPago = filterMetodo;
       }
+      if (filterClienteEstado) {
+        params.estadoCliente = filterClienteEstado;
+      }
 
       const res = await api.get('/pagos', { params });
       if (res.data?.success) {
@@ -58,9 +62,10 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
 
   useEffect(() => {
     fetchPagos();
-  }, [filterBranch, filterMetodo]);
+  }, [filterBranch, filterMetodo, filterClienteEstado]);
 
   const filteredPagos = pagos.filter((p) => {
+    if (filterClienteEstado === 'ACTIVOS' && p.estadoUsuario === 'INACTIVO') return false;
     if (!searchTerm.trim()) return true;
     const q = searchTerm.toLowerCase();
     return (
@@ -195,6 +200,24 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
               </button>
             ))}
           </div>
+
+          {/* Client Status: Solo activos por defecto */}
+          <div className="flex bg-[#141418] border border-[#2A2A31] p-0.5">
+            {[
+              { id: 'ACTIVOS', label: 'SOCIOS ACTIVOS' },
+              { id: 'TODOS', label: 'TODOS' },
+            ].map((st) => (
+              <button
+                key={st.id}
+                onClick={() => setFilterClienteEstado(st.id)}
+                className={`px-2.5 py-1 text-[10px] tracking-wider font-bold transition-all ${
+                  filterClienteEstado === st.id ? 'bg-[#E8B84A] text-[#1A1206]' : 'text-[#82828A] hover:text-[#F5EFE0]'
+                }`}
+              >
+                {st.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         <button
@@ -243,8 +266,13 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
                     </td>
 
                     <td className="py-3.5 px-6">
-                      <div className="font-sans font-semibold text-sm text-[#F5EFE0]">
-                        {p.socio}
+                      <div className="font-sans font-semibold text-sm text-[#F5EFE0] flex items-center gap-2">
+                        <span>{p.socio}</span>
+                        {p.estadoUsuario === 'INACTIVO' && (
+                          <span className="px-1.5 py-0.5 bg-red-950/80 border border-red-500/80 text-red-300 font-mono text-[9px] font-bold tracking-wider">
+                            DADO DE BAJA
+                          </span>
+                        )}
                       </div>
                       <div className="text-[10px] text-[#82828A]">
                         CI: {p.cedula}

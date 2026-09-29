@@ -34,6 +34,14 @@ const registrarPago = async (req, res) => {
       });
     }
 
+    if (cliente.usuario?.estado === 'INACTIVO') {
+      await transaction.rollback();
+      return res.status(400).json({
+        success: false,
+        message: `El socio '${cliente.usuario?.nombre} ${cliente.usuario?.apellido}' se encuentra DADO DE BAJA (INACTIVO) y no puede registrar nuevos cobros.`,
+      });
+    }
+
     const tipo = await TipoMembresia.findByPk(tipoMembresiaId);
     if (!tipo) {
       await transaction.rollback();
@@ -150,7 +158,7 @@ const registrarPago = async (req, res) => {
 // Listar pagos con filtros (RF-W05, RF-W08)
 const getPagos = async (req, res) => {
   try {
-    const { sucursalId, clienteId, fechaInicio, fechaFin, metodoPago } = req.query;
+    const { sucursalId, clienteId, fechaInicio, fechaFin, metodoPago, estadoCliente = 'ACTIVO' } = req.query;
 
     const where = {};
     if (sucursalId && sucursalId !== 'TODAS') where.sucursalId = sucursalId;
@@ -173,7 +181,7 @@ const getPagos = async (req, res) => {
             {
               model: Usuario,
               as: 'usuario',
-              attributes: ['nombre', 'apellido', 'email', 'telefono'],
+              attributes: ['nombre', 'apellido', 'email', 'telefono', 'estado'],
             },
           ],
         },
@@ -188,7 +196,7 @@ const getPagos = async (req, res) => {
       order: [['id', 'DESC']],
     });
 
-    const resultados = pagos.map((p) => {
+    let resultados = pagos.map((p) => {
       const plain = p.toJSON();
       return {
         id: plain.id,
@@ -198,7 +206,8 @@ const getPagos = async (req, res) => {
         referencia: plain.referencia || '—',
         fechaPago: plain.fechaPago,
         clienteId: plain.clienteId,
-        socio: `${plain.cliente?.usuario?.nombre} ${plain.cliente?.usuario?.apellido}`,
+        socio: `${plain.cliente?.usuario?.nombre || ''} ${plain.cliente?.usuario?.apellido || ''}`.trim(),
+        estadoUsuario: plain.cliente?.usuario?.estado || 'ACTIVO',
         cedula: plain.cliente?.cedula,
         plan: plain.membresia?.tipoMembresia?.nombre || 'PLAN',
         sucursal: plain.sucursal?.nombre,
@@ -206,6 +215,17 @@ const getPagos = async (req, res) => {
         cajero: `${plain.cajero?.nombre || ''} ${plain.cajero?.apellido || ''}`.trim(),
       };
     });
+
+    // Filtro por estado de cliente (por defecto solo pagos de socios activos)
+    if (estadoCliente && estadoCliente !== 'TODOS') {
+      if (estadoCliente === 'ACTIVO' || estadoCliente === 'ACTIVOS') {
+        resultados = resultados.filter((p) => p.estadoUsuario === 'ACTIVO');
+      } else if (estadoCliente === 'INACTIVO' || estadoCliente === 'DADOS DE BAJA') {
+        resultados = resultados.filter((p) => p.estadoUsuario === 'INACTIVO');
+      }
+    } else if (!estadoCliente) {
+      resultados = resultados.filter((p) => p.estadoUsuario === 'ACTIVO');
+    }
 
     return res.status(200).json({
       success: true,
