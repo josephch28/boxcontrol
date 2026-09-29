@@ -68,27 +68,58 @@ const registrarPago = async (req, res) => {
       });
     }
 
-    // Calcular vigencia automática
-    const fInicio = fechaInicio ? new Date(fechaInicio) : new Date();
+    // Buscar si el cliente tiene una membresía activa vigente para renovación acumulativa
+    const hoyObj = new Date();
+    const hoyStr = `${hoyObj.getFullYear()}-${String(hoyObj.getMonth() + 1).padStart(2, '0')}-${String(hoyObj.getDate()).padStart(2, '0')}`;
+    
+    const membresiaVigente = await Membresia.findOne({
+      where: {
+        clienteId,
+        estado: 'ACTIVA',
+        fechaFin: { [Op.gte]: hoyStr },
+      },
+      order: [['fechaFin', 'DESC']],
+      transaction,
+    });
+
+    let fInicio;
+    let esRenovacionAcumulada = false;
+
+    if (membresiaVigente) {
+      esRenovacionAcumulada = true;
+      // Si el cajero indicó una fecha manual posterior al fin vigente, se respeta;
+      // de lo contrario, el nuevo periodo inicia el día siguiente al término de la membresía activa
+      if (fechaInicio && fechaInicio > membresiaVigente.fechaFin) {
+        fInicio = new Date(fechaInicio + 'T00:00:00');
+      } else {
+        fInicio = new Date(membresiaVigente.fechaFin + 'T00:00:00');
+        fInicio.setDate(fInicio.getDate() + 1);
+      }
+    } else {
+      fInicio = fechaInicio ? new Date(fechaInicio + 'T00:00:00') : new Date();
+    }
+
     const fFin = new Date(fInicio);
     fFin.setDate(fFin.getDate() + Number(tipo.duracionDias));
 
-    const fechaInicioStr = fInicio.toISOString().split('T')[0];
-    const fechaFinStr = fFin.toISOString().split('T')[0];
+    const fechaInicioStr = `${fInicio.getFullYear()}-${String(fInicio.getMonth() + 1).padStart(2, '0')}-${String(fInicio.getDate()).padStart(2, '0')}`;
+    const fechaFinStr = `${fFin.getFullYear()}-${String(fFin.getMonth() + 1).padStart(2, '0')}-${String(fFin.getDate()).padStart(2, '0')}`;
 
-    // Marcar membresías activas anteriores como VENCIDAS
-    await Membresia.update(
-      { estado: 'VENCIDA' },
-      {
-        where: {
-          clienteId,
-          estado: 'ACTIVA',
-        },
-        transaction,
-      }
-    );
+    // Si NO es renovación acumulada (el socio estaba vencido o sin membresía), marcar membresías anteriores como VENCIDAS
+    if (!esRenovacionAcumulada) {
+      await Membresia.update(
+        { estado: 'VENCIDA' },
+        {
+          where: {
+            clienteId,
+            estado: 'ACTIVA',
+          },
+          transaction,
+        }
+      );
+    }
 
-    // Crear nueva Membresía activa
+    // Crear nueva Membresía activa (periodo acumulativo)
     const nuevaMembresia = await Membresia.create(
       {
         clienteId,
@@ -122,7 +153,9 @@ const registrarPago = async (req, res) => {
 
     return res.status(201).json({
       success: true,
-      message: 'Cobro registrado exitosamente.',
+      message: esRenovacionAcumulada
+        ? `Cobro registrado con éxito. Renovación acumulada: vigencia extendida del ${fechaInicioStr} al ${fechaFinStr} (el socio mantiene sus días vigentes previos).`
+        : 'Cobro registrado exitosamente.',
       data: {
         pagoId: nuevoPago.id,
         reciboNumero,

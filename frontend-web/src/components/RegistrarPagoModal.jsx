@@ -75,8 +75,18 @@ export default function RegistrarPagoModal({ isOpen, onClose, preselectedCliente
         setSelectedClienteId(cliId);
         if (cliId) {
           const targetCli = resCli.data.data.find((c) => c.id === cliId);
-          if (targetCli?.sucursalId) {
-            setSelectedSucursalId(targetCli.sucursalId);
+          if (targetCli) {
+            if (targetCli.sucursalId) {
+              setSelectedSucursalId(targetCli.sucursalId);
+            }
+            const hoyStr = new Date().toISOString().split('T')[0];
+            if (targetCli.fechaVencimiento && targetCli.fechaVencimiento >= hoyStr && targetCli.estadoMembresia === 'ACTIVO') {
+              const fVigente = new Date(targetCli.fechaVencimiento + 'T00:00:00');
+              fVigente.setDate(fVigente.getDate() + 1);
+              setFechaInicio(fVigente.toISOString().split('T')[0]);
+            } else {
+              setFechaInicio(hoyStr);
+            }
           }
           setIsSearchingSocio(false);
         } else {
@@ -136,6 +146,17 @@ export default function RegistrarPagoModal({ isOpen, onClose, preselectedCliente
     if (cliente.sucursalId) {
       setSelectedSucursalId(cliente.sucursalId);
     }
+
+    const hoyStr = new Date().toISOString().split('T')[0];
+    if (cliente.fechaVencimiento && cliente.fechaVencimiento >= hoyStr && cliente.estadoMembresia === 'ACTIVO') {
+      const fVigente = new Date(cliente.fechaVencimiento + 'T00:00:00');
+      fVigente.setDate(fVigente.getDate() + 1);
+      setFechaInicio(fVigente.toISOString().split('T')[0]);
+      setFechaInicioError(null);
+    } else {
+      setFechaInicio(hoyStr);
+      setFechaInicioError(null);
+    }
   };
 
   const handleDeselectCliente = () => {
@@ -167,6 +188,13 @@ export default function RegistrarPagoModal({ isOpen, onClose, preselectedCliente
 
   const currentCliente = clientes.find((c) => c.id === Number(selectedClienteId));
   const currentTipo = tiposMembresia.find((t) => t.id === Number(selectedTipoId));
+
+  const hoyStr = new Date().toISOString().split('T')[0];
+  const esRenovacionAcumulada =
+    currentCliente &&
+    currentCliente.estadoMembresia === 'ACTIVO' &&
+    currentCliente.fechaVencimiento &&
+    currentCliente.fechaVencimiento >= hoyStr;
 
   // Calcular fecha de vencimiento automática
   const calcularVencimiento = () => {
@@ -587,6 +615,26 @@ export default function RegistrarPagoModal({ isOpen, onClose, preselectedCliente
                   })}
                 </div>
               </div>
+
+              {/* Notificación visual de Renovación Acumulativa */}
+              {esRenovacionAcumulada && (
+                <div className="p-3 bg-[#1F1810] border-l-4 border-[#E8B84A] text-[#E8B84A] font-mono text-xs flex items-start gap-2.5 animate-fadeIn">
+                  <CheckCircle2 size={16} className="shrink-0 mt-0.5 text-[#E8B84A]" />
+                  <div>
+                    <span className="font-bold tracking-wider">RENOVACIÓN ACUMULATIVA:</span> El socio cuenta con una membresía activa hasta el{' '}
+                    <strong className="text-[#F5EFE0]">
+                      {new Date(currentCliente.fechaVencimiento + 'T00:00:00').toLocaleDateString('es-EC', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                      }).toUpperCase()}
+                    </strong>.
+                    <div className="text-[11px] text-[#CAC6B9] mt-0.5">
+                      El nuevo periodo iniciará automáticamente a continuación (<strong>{fechaInicio}</strong>) conservando íntegros sus días vigentes restantes.
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Fechas de Vigencia con validación de rango */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
