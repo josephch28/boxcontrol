@@ -15,11 +15,17 @@ import {
   handleKeyDownSoloLetras,
 } from '../utils/validators';
 import { ConfirmModal, AlertModal } from '../components/ModalAlert';
+import Pagination from '../components/Pagination';
 
 export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursalesList = [] }) {
   const [cliente, setCliente] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('pagos'); // 'pagos' | 'asistencias' | 'renovacion'
+  
+  // Paginación de historiales
+  const [pagosPage, setPagosPage] = useState(1);
+  const [asistenciasPage, setAsistenciasPage] = useState(1);
+  const itemsPerPageHistory = 5;
   
   // Modal Editar Socio
   const [showEditModal, setShowEditModal] = useState(false);
@@ -700,95 +706,125 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
 
             {/* TAB CONTENT: PAGOS (RF-W11) */}
             {activeTab === 'pagos' && (
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-left font-mono text-xs">
-                  <thead>
-                    <tr className="border-b border-[#2A2A31] text-[10px] text-[#82828A] uppercase">
-                      <th className="py-2.5">RECIBO</th>
-                      <th className="py-2.5">FECHA</th>
-                      <th className="py-2.5">CONCEPTO / PLAN</th>
-                      <th className="py-2.5">MÉTODO</th>
-                      <th className="py-2.5">CAJERO</th>
-                      <th className="py-2.5 text-right">MONTO</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-[#2A2A31]">
-                    {pagos.length === 0 ? (
-                      <tr>
-                        <td colSpan="6" className="py-8 text-center text-[#82828A]">
-                          No hay pagos registrados para este socio.
-                        </td>
+              <div className="mt-4 border border-[#2A2A31] bg-[#141418] overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left font-mono text-xs">
+                    <thead>
+                      <tr className="border-b border-[#2A2A31] text-[10px] text-[#82828A] uppercase bg-[#1B1B21]">
+                        <th className="py-2.5 px-4">RECIBO</th>
+                        <th className="py-2.5 px-4">FECHA</th>
+                        <th className="py-2.5 px-4">CONCEPTO / PLAN</th>
+                        <th className="py-2.5 px-4">MÉTODO</th>
+                        <th className="py-2.5 px-4">CAJERO</th>
+                        <th className="py-2.5 px-4 text-right">MONTO</th>
                       </tr>
-                    ) : (
-                      pagos.map((p) => (
-                        <tr key={p.id} className="hover:bg-[#141418] transition-colors">
-                          <td className="py-3 font-bold text-[#E8B84A]">{p.reciboNumero || `R-${p.id}`}</td>
-                          <td className="py-3 text-[#F5EFE0]">
-                            {new Date(p.fechaPago).toLocaleDateString('es-EC', { day: '2-digit', month: 'short', year: 'numeric' })}
-                          </td>
-                          <td className="py-3 text-[#B8B8BE]">
-                            {p.membresia?.tipoMembresia?.nombre || 'Membresía Boxeo'}
-                          </td>
-                          <td className="py-3">
-                            <span className="px-1.5 py-0.5 bg-[#232329] border border-[#3A3A42] text-[10px] text-[#F5EFE0]">
-                              {p.metodoPago}
-                            </span>
-                          </td>
-                          <td className="py-3 text-[#82828A]">
-                            {p.cajero?.nombre || 'Admin'}
-                          </td>
-                          <td className="py-3 text-right font-display text-base text-[#F5EFE0]">
-                            ${Number(p.monto).toFixed(2)}
+                    </thead>
+                    <tbody className="divide-y divide-[#2A2A31]">
+                      {pagos.length === 0 ? (
+                        <tr>
+                          <td colSpan="6" className="py-8 text-center text-[#82828A]">
+                            No hay pagos registrados para este socio.
                           </td>
                         </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
+                      ) : (
+                        pagos
+                          .slice((pagosPage - 1) * itemsPerPageHistory, pagosPage * itemsPerPageHistory)
+                          .map((p) => (
+                            <tr key={p.id} className="hover:bg-[#1B1B21] transition-colors">
+                              <td className="py-3 px-4 font-bold text-[#E8B84A]">{p.reciboNumero || `R-${p.id}`}</td>
+                              <td className="py-3 px-4 text-[#F5EFE0]">
+                                {new Date(p.fechaPago).toLocaleDateString('es-EC', { day: '2-digit', month: 'short', year: 'numeric' })}
+                              </td>
+                              <td className="py-3 px-4 text-[#B8B8BE]">
+                                {p.membresia?.tipoMembresia?.nombre || 'Membresía Boxeo'}
+                              </td>
+                              <td className="py-3 px-4">
+                                <span className="px-1.5 py-0.5 bg-[#232329] border border-[#3A3A42] text-[10px] text-[#F5EFE0]">
+                                  {p.metodoPago}
+                                </span>
+                              </td>
+                              <td className="py-3 px-4 text-[#82828A]">
+                                {p.cajero?.nombre || 'Admin'}
+                              </td>
+                              <td className="py-3 px-4 text-right font-display text-base text-[#F5EFE0]">
+                                ${Number(p.monto).toFixed(2)}
+                              </td>
+                            </tr>
+                          ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+
+                {pagos.length > itemsPerPageHistory && (
+                  <Pagination
+                    currentPage={pagosPage}
+                    totalItems={pagos.length}
+                    itemsPerPage={itemsPerPageHistory}
+                    onPageChange={setPagosPage}
+                    itemsPerPageOptions={[5, 10, 20]}
+                    itemName="pagos"
+                  />
+                )}
               </div>
             )}
 
             {/* TAB CONTENT: ASISTENCIAS (RF-M06) */}
             {activeTab === 'asistencias' && (
-              <div className="mt-4 overflow-x-auto">
-                <table className="w-full text-left font-mono text-xs">
-                  <thead>
-                    <tr className="border-b border-[#2A2A31] text-[10px] text-[#82828A] uppercase">
-                      <th className="py-2.5">FECHA</th>
-                      <th className="py-2.5">HORA</th>
-                      <th className="py-2.5">SUCURSAL</th>
-                      <th className="py-2.5 text-right">MÉTODO DE ACCESO</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-[#2A2A31]">
-                    {asistencias.length === 0 ? (
-                      <tr>
-                        <td colSpan="4" className="py-8 text-center text-[#82828A]">
-                          No hay asistencias registradas aún.
-                        </td>
+              <div className="mt-4 border border-[#2A2A31] bg-[#141418] overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left font-mono text-xs">
+                    <thead>
+                      <tr className="border-b border-[#2A2A31] text-[10px] text-[#82828A] uppercase bg-[#1B1B21]">
+                        <th className="py-2.5 px-4">FECHA</th>
+                        <th className="py-2.5 px-4">HORA</th>
+                        <th className="py-2.5 px-4">SUCURSAL</th>
+                        <th className="py-2.5 px-4 text-right">MÉTODO DE ACCESO</th>
                       </tr>
-                    ) : (
-                      asistencias.map((a) => (
-                        <tr key={a.id} className="hover:bg-[#141418] transition-colors">
-                          <td className="py-3 text-[#F5EFE0]">
-                            {new Date(a.fechaHora).toLocaleDateString('es-EC', { day: '2-digit', month: 'short', year: 'numeric' })}
-                          </td>
-                          <td className="py-3 text-[#E8B84A]">
-                            {new Date(a.fechaHora).toLocaleTimeString('es-EC', { hour: '2-digit', minute: '2-digit' })}
-                          </td>
-                          <td className="py-3 text-[#B8B8BE]">
-                            {a.sucursal?.nombre || 'Sucursal Norte'}
-                          </td>
-                          <td className="py-3 text-right">
-                            <span className="px-2 py-0.5 bg-[#141418] border border-[#3A3A42] text-[10px] text-[#4ADE80]">
-                              {a.metodo || 'QR_SCAN'}
-                            </span>
+                    </thead>
+                    <tbody className="divide-y divide-[#2A2A31]">
+                      {asistencias.length === 0 ? (
+                        <tr>
+                          <td colSpan="4" className="py-8 text-center text-[#82828A]">
+                            No hay asistencias registradas aún.
                           </td>
                         </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
+                      ) : (
+                        asistencias
+                          .slice((asistenciasPage - 1) * itemsPerPageHistory, asistenciasPage * itemsPerPageHistory)
+                          .map((a) => (
+                            <tr key={a.id} className="hover:bg-[#1B1B21] transition-colors">
+                              <td className="py-3 px-4 text-[#F5EFE0]">
+                                {new Date(a.fechaHora).toLocaleDateString('es-EC', { day: '2-digit', month: 'short', year: 'numeric' })}
+                              </td>
+                              <td className="py-3 px-4 text-[#E8B84A]">
+                                {new Date(a.fechaHora).toLocaleTimeString('es-EC', { hour: '2-digit', minute: '2-digit' })}
+                              </td>
+                              <td className="py-3 px-4 text-[#B8B8BE]">
+                                {a.sucursal?.nombre || 'Sucursal Norte'}
+                              </td>
+                              <td className="py-3 px-4 text-right">
+                                <span className="px-2 py-0.5 bg-[#141418] border border-[#3A3A42] text-[10px] text-[#4ADE80]">
+                                  {a.metodo || 'QR_SCAN'}
+                                </span>
+                              </td>
+                            </tr>
+                          ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+
+                {asistencias.length > itemsPerPageHistory && (
+                  <Pagination
+                    currentPage={asistenciasPage}
+                    totalItems={asistencias.length}
+                    itemsPerPage={itemsPerPageHistory}
+                    onPageChange={setAsistenciasPage}
+                    itemsPerPageOptions={[5, 10, 20]}
+                    itemName="asistencias"
+                  />
+                )}
               </div>
             )}
           </div>

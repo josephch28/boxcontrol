@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
+import Pagination from '../components/Pagination';
 import { 
   validarCedula, validarNombreOApellido, validarEmail, 
   validarTelefono, validarFechaNacimiento,
@@ -19,6 +20,10 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
   const [showModal, setShowModal] = useState(false);
   const [tiposMembresia, setTiposMembresia] = useState([]);
   const [sucursales, setSucursales] = useState(sucursalesList);
+
+  // Paginación
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   // Formulario nuevo socio con validaciones en tiempo real
   const [formData, setFormData] = useState({
@@ -168,6 +173,11 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
     fetchClientes();
   }, [filterEstado, filterSucursal, localSearch]);
 
+  // Resetear página al cambiar filtros o búsqueda
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filterEstado, filterSucursal, localSearch]);
+
   useEffect(() => {
     fetchTipos();
   }, []);
@@ -240,6 +250,11 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
     if (filterEstado === 'NUEVOS') return c.estadoUsuario === 'ACTIVO' && c.esNuevo;
     return true; // TODOS
   });
+
+  const paginatedClientes = displayClientes.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div className="p-6 md:p-8 space-y-6 bg-[#0B0B0D] min-h-[calc(100vh-75px)] select-none">
@@ -369,7 +384,7 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
         </div>
 
         <div className="text-[#82828A] text-right">
-          MOSTRANDO <strong className="text-[#F5EFE0]">{displayClientes.length}</strong> SOCIOS
+          TOTAL: <strong className="text-[#F5EFE0]">{displayClientes.length}</strong> SOCIOS
         </div>
       </div>
 
@@ -404,7 +419,7 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
                   </td>
                 </tr>
               ) : (
-                displayClientes.map((c) => {
+                paginatedClientes.map((c) => {
                   const initials = `${c.nombre?.[0] || 'S'}${c.apellido?.[0] || 'C'}`.toUpperCase();
                   const esCritico = c.diasRestantes !== null && c.diasRestantes <= 2;
                   const esAlerta = c.diasRestantes !== null && c.diasRestantes <= 5;
@@ -492,6 +507,17 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
             </tbody>
           </table>
         </div>
+
+        {/* Paginación de Socios */}
+        <Pagination
+          currentPage={currentPage}
+          totalItems={displayClientes.length}
+          itemsPerPage={itemsPerPage}
+          onPageChange={setCurrentPage}
+          onItemsPerPageChange={setItemsPerPage}
+          itemsPerPageOptions={[5, 10, 25, 50]}
+          itemName="socios"
+        />
       </div>
 
       {/* Modal Nuevo Socio con Validaciones Estrictas */}

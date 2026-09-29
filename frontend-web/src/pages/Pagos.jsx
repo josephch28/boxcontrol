@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api/axios';
 import { useAuth } from '../context/AuthContext';
+import Pagination from '../components/Pagination';
 import { DollarSign, Plus, RefreshCw, Search, Printer, Calendar, Filter } from 'lucide-react';
 
 export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList = [] }) {
@@ -16,6 +17,10 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
   const [filterMetodo, setFilterMetodo] = useState('TODOS');
   const [filterClienteEstado, setFilterClienteEstado] = useState('ACTIVOS'); // 'ACTIVOS' | 'TODOS'
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Paginación
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
   useEffect(() => {
     if (sucursalesList && sucursalesList.length > 0) {
@@ -64,6 +69,11 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
     fetchPagos();
   }, [filterBranch, filterMetodo, filterClienteEstado]);
 
+  // Resetear página al cambiar filtros o búsqueda
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filterBranch, filterMetodo, filterClienteEstado, searchTerm]);
+
   const filteredPagos = pagos.filter((p) => {
     if (filterClienteEstado === 'ACTIVOS' && p.estadoUsuario === 'INACTIVO') return false;
     if (!searchTerm.trim()) return true;
@@ -75,6 +85,11 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
       p.plan?.toLowerCase().includes(q)
     );
   });
+
+  const paginatedPagos = filteredPagos.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const totalRecaudado = filteredPagos.reduce((sum, p) => sum + Number(p.monto), 0);
 
@@ -259,7 +274,7 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
                   </td>
                 </tr>
               ) : (
-                filteredPagos.map((p) => (
+                paginatedPagos.map((p) => (
                   <tr key={p.id} className="hover:bg-[#141418] transition-colors">
                     <td className="py-3.5 px-6 font-bold text-[#E8B84A]">
                       {p.reciboNumero}
@@ -314,6 +329,17 @@ export default function Pagos({ onOpenNuevoPago, externalBranch, sucursalesList 
             </tbody>
           </table>
         </div>
+
+        {/* Paginación de Pagos */}
+        <Pagination
+          currentPage={currentPage}
+          totalItems={filteredPagos.length}
+          itemsPerPage={itemsPerPage}
+          onPageChange={setCurrentPage}
+          onItemsPerPageChange={setItemsPerPage}
+          itemsPerPageOptions={[5, 10, 25, 50]}
+          itemName="cobros"
+        />
       </div>
     </div>
   );
