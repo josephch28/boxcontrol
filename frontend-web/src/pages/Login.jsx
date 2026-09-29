@@ -191,9 +191,6 @@ export default function Login() {
               <span>{loading ? 'INGRESANDO...' : 'INGRESAR AL RING'}</span>
               {loading ? <Loader2 size={18} className="animate-spin" /> : <ArrowRight size={18} />}
             </button>
-            <span className="font-mono text-[10px] tracking-wider text-[#82828A] cursor-pointer hover:text-[#E8B84A] transition-colors">
-              ¿OLVIDASTE TU CLAVE?
-            </span>
           </div>
         </form>
 

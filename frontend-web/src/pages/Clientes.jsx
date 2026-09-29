@@ -399,8 +399,13 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
                             {initials}
                           </div>
                           <div>
-                            <div className="font-sans font-semibold text-sm text-[#F5EFE0] group-hover:text-[#E8B84A] transition-colors">
-                              {c.nombreCompleto}
+                            <div className="font-sans font-semibold text-sm text-[#F5EFE0] group-hover:text-[#E8B84A] transition-colors flex items-center gap-2">
+                              <span>{c.nombreCompleto}</span>
+                              {c.estadoUsuario === 'INACTIVO' && (
+                                <span className="px-1.5 py-0.5 bg-red-950/80 border border-red-500/80 text-red-300 font-mono text-[9px] font-bold tracking-wider">
+                                  DADO DE BAJA
+                                </span>
+                              )}
                             </div>
                             <div className="text-[10px] text-[#82828A]">
                               {c.email} · {c.telefono || 'Sin teléfono'}

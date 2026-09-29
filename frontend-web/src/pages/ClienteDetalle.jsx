@@ -3,7 +3,7 @@ import api from '../api/axios';
 import { 
   ArrowLeft, Edit, CreditCard, DollarSign, Calendar, 
   Phone, Mail, MapPin, User, CheckCircle2, AlertTriangle, 
-  Download, Printer, RefreshCw, X, ShieldCheck, QrCode, AlertCircle
+  Download, Printer, RefreshCw, X, ShieldCheck, QrCode, AlertCircle, Trash2
 } from 'lucide-react';
 import {
   validarCedula,
@@ -52,6 +52,7 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
   const [membresiaModalError, setMembresiaModalError] = useState('');
   const [tiposMembresia, setTiposMembresia] = useState([]);
   const [sucursales, setSucursales] = useState(sucursalesList);
+  const [deleteLoading, setDeleteLoading] = useState(false);
 
   const validateField = (name, value) => {
     let res = { isValid: true, error: '' };
@@ -291,6 +292,30 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
     }
   };
 
+  const handleToggleDeleteSocio = async () => {
+    if (!cliente) return;
+    const esInactivo = cliente.usuario?.estado === 'INACTIVO';
+    const confirmMsg = esInactivo
+      ? `¿Deseas REACTIVAR la cuenta del socio ${cliente.nombreCompleto}? Podrá ingresar nuevamente y registrar pagos.`
+      : `¿Estás seguro de que deseas DAR DE BAJA / ELIMINAR al socio ${cliente.nombreCompleto}?\n\nSu cuenta pasará a estado INACTIVO y se bloqueará su acceso en torniquete y caja. (El historial contable se preservará por auditoría).`;
+
+    if (!window.confirm(confirmMsg)) return;
+
+    setDeleteLoading(true);
+    try {
+      const res = await api.delete(`/clientes/${clienteId}`);
+      if (res.data?.success) {
+        setFeedbackMsg(res.data.message || `Estado del socio modificado.`);
+        fetchDetalle();
+        setTimeout(() => setFeedbackMsg(''), 4000);
+      }
+    } catch (err) {
+      alert(err.response?.data?.message || 'Error al modificar estado del socio.');
+    } finally {
+      setDeleteLoading(false);
+    }
+  };
+
   if (loading) {
     return (
       <div className="p-12 text-center text-[#82828A] font-mono">
@@ -382,12 +407,20 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row md:flex-col gap-2 shrink-0">
           <div className={`px-3 py-1.5 border font-mono text-[10px] tracking-wider text-center flex items-center justify-center gap-1.5 ${
-            esActivo
+            cliente.usuario?.estado === 'INACTIVO'
+              ? 'bg-[#2E1818] border-red-500 text-red-400'
+              : esActivo
               ? 'bg-[#0F1F14] border-[#4ADE80]/40 text-[#4ADE80]'
               : 'bg-[#2E1818] border-[#F87171]/40 text-[#F87171]'
           }`}>
-            <span className={`w-2 h-2 rounded-full ${esActivo ? 'bg-[#4ADE80]' : 'bg-[#F87171]'}`}></span>
-            <span>{esActivo ? 'MEMBRESÍA ACTIVA' : 'MEMBRESÍA VENCIDA'}</span>
+            <span className={`w-2 h-2 rounded-full ${cliente.usuario?.estado === 'INACTIVO' ? 'bg-red-500' : esActivo ? 'bg-[#4ADE80]' : 'bg-[#F87171]'}`}></span>
+            <span>
+              {cliente.usuario?.estado === 'INACTIVO'
+                ? 'SOCIO DADO DE BAJA'
+                : esActivo
+                ? 'MEMBRESÍA ACTIVA'
+                : 'MEMBRESÍA VENCIDA'}
+            </span>
           </div>
 
           <button
@@ -403,8 +436,37 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
           >
             + REGISTRAR PAGO
           </button>
+
+          <button
+            onClick={handleToggleDeleteSocio}
+            disabled={deleteLoading}
+            className={`px-4 py-1.5 border font-mono text-[11px] tracking-wider transition-colors flex items-center justify-center gap-1.5 ${
+              cliente.usuario?.estado === 'INACTIVO'
+                ? 'border-green-600/60 text-green-400 hover:bg-green-950/40'
+                : 'border-red-600/60 text-red-400 hover:bg-red-950/40'
+            }`}
+          >
+            <Trash2 size={13} />
+            <span>{cliente.usuario?.estado === 'INACTIVO' ? 'REACTIVAR SOCIO' : 'ELIMINAR / DAR DE BAJA'}</span>
+          </button>
         </div>
       </div>
+
+      {/* Alerta de socio inactivo */}
+      {cliente.usuario?.estado === 'INACTIVO' && (
+        <div className="p-3 bg-red-950/60 border border-red-500 text-red-300 font-mono text-xs flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <AlertCircle size={16} className="text-red-400 shrink-0" />
+            <span><strong>SOCIO DADO DE BAJA:</strong> Este cliente se encuentra inactivo. Se han revocado sus accesos en torniquetes y cajas.</span>
+          </div>
+          <button
+            onClick={handleToggleDeleteSocio}
+            className="px-3 py-1 bg-red-900/80 hover:bg-red-800 text-red-200 border border-red-400 font-bold text-[10px]"
+          >
+            REACTIVAR
+          </button>
+        </div>
+      )}
 
       {/* Two Column Grid (Matching Mockup 04) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
