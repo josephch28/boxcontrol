@@ -112,6 +112,7 @@ export default function RegistrarPagoModal({ isOpen, onClose, preselectedCliente
     if (!searchSocioText.trim()) return clientes.slice(0, 10);
     const q = searchSocioText.toLowerCase().trim();
     return clientes.filter((c) => {
+      if (c.estadoUsuario === 'INACTIVO') return false;
       const nombreCompleto = (c.nombreCompleto || `${c.nombre || ''} ${c.apellido || ''}`).toLowerCase();
       const cedula = (c.cedula || '').toLowerCase();
       const telefono = (c.telefono || '').toLowerCase();

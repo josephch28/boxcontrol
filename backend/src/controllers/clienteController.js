@@ -140,15 +140,20 @@ const getClientes = async (req, res) => {
       };
     });
 
-    // Filtro por pestaña de estado
+    // Filtro por pestaña de estado (RF-W02)
     if (estado && estado !== 'TODOS') {
       if (estado === 'ACTIVOS') {
-        resultados = resultados.filter((c) => c.estadoMembresia === 'ACTIVO');
+        resultados = resultados.filter((c) => c.estadoUsuario === 'ACTIVO');
+      } else if (estado === 'BAJAS' || estado === 'DADOS DE BAJA' || estado === 'INACTIVOS') {
+        resultados = resultados.filter((c) => c.estadoUsuario === 'INACTIVO');
       } else if (estado === 'VENCIDOS') {
-        resultados = resultados.filter((c) => c.estadoMembresia === 'VENCIDO' || c.estadoMembresia === 'SIN_MEMBRESIA');
+        resultados = resultados.filter((c) => c.estadoUsuario === 'ACTIVO' && (c.estadoMembresia === 'VENCIDO' || c.estadoMembresia === 'SIN_MEMBRESIA'));
       } else if (estado === 'NUEVOS') {
-        resultados = resultados.filter((c) => c.esNuevo);
+        resultados = resultados.filter((c) => c.estadoUsuario === 'ACTIVO' && c.esNuevo);
       }
+    } else if (!estado) {
+      // Por defecto, solo mostrar socios activos
+      resultados = resultados.filter((c) => c.estadoUsuario === 'ACTIVO');
     }
 
     return res.status(200).json({

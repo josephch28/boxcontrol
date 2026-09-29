@@ -44,7 +44,12 @@ const getDashboardMetrics = async (req, res) => {
         fechaFin: { [Op.gte]: hoyStr },
       },
       include: [
-        { model: Cliente, as: 'cliente', attributes: ['id', 'sucursalOrigenId'] },
+        {
+          model: Cliente,
+          as: 'cliente',
+          attributes: ['id', 'sucursalOrigenId'],
+          include: [{ model: Usuario, as: 'usuario', attributes: ['id', 'estado'], where: { estado: 'ACTIVO' } }],
+        },
         { model: TipoMembresia, as: 'tipoMembresia', attributes: ['id', 'nombre'] },
       ],
     });

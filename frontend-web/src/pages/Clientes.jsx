@@ -13,7 +13,7 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
   const isAdmin = user?.rol === 'ADMINISTRADOR';
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filterEstado, setFilterEstado] = useState('TODOS'); // 'TODOS' | 'ACTIVOS' | 'VENCIDOS' | 'NUEVOS'
+  const [filterEstado, setFilterEstado] = useState('ACTIVOS'); // 'ACTIVOS' | 'VENCIDOS' | 'NUEVOS' | 'DADOS DE BAJA' | 'TODOS'
   const [filterSucursal, setFilterSucursal] = useState('TODAS');
   const [localSearch, setLocalSearch] = useState('');
   const [showModal, setShowModal] = useState(false);
@@ -138,7 +138,7 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
       if (filterSucursal !== 'TODAS') {
         params.sucursalId = filterSucursal;
       }
-      if (filterEstado !== 'TODOS') {
+      if (filterEstado) {
         params.estado = filterEstado;
       }
 
@@ -233,6 +233,14 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
     }
   };
 
+  const displayClientes = clientes.filter((c) => {
+    if (filterEstado === 'ACTIVOS') return c.estadoUsuario === 'ACTIVO';
+    if (filterEstado === 'DADOS DE BAJA') return c.estadoUsuario === 'INACTIVO';
+    if (filterEstado === 'VENCIDOS') return c.estadoUsuario === 'ACTIVO' && (c.estadoMembresia === 'VENCIDO' || c.estadoMembresia === 'SIN_MEMBRESIA');
+    if (filterEstado === 'NUEVOS') return c.estadoUsuario === 'ACTIVO' && c.esNuevo;
+    return true; // TODOS
+  });
+
   return (
     <div className="p-6 md:p-8 space-y-6 bg-[#0B0B0D] min-h-[calc(100vh-75px)] select-none">
       {/* Toast Notification */}
@@ -247,7 +255,9 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-[#2A2A31]">
         <div>
           <div className="font-mono text-[10px] tracking-[0.25em] text-[#82828A] uppercase">
-            REGISTRO OPERATIVO · {clientes.length} SOCIOS ENCONTRADOS
+            {filterEstado === 'DADOS DE BAJA'
+              ? `ARCHIVADOS / BAJAS · ${displayClientes.length} SOCIOS INACTIVOS`
+              : `REGISTRO OPERATIVO · ${displayClientes.length} SOCIOS ENCONTRADOS`}
           </div>
           <h2 className="font-display text-3xl text-[#F5EFE0] tracking-wider mt-0.5">
             SOCIOS DEL CLUB
@@ -289,19 +299,30 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
 
           {/* Status Filter */}
           <div className="flex bg-[#141418] border border-[#2A2A31] p-0.5">
-            {['TODOS', 'ACTIVOS', 'VENCIDOS', 'NUEVOS'].map((est) => {
-              const isSelected = filterEstado === est;
+            {[
+              { id: 'ACTIVOS', label: 'ACTIVOS' },
+              { id: 'VENCIDOS', label: 'VENCIDOS' },
+              { id: 'NUEVOS', label: 'NUEVOS' },
+              { id: 'DADOS DE BAJA', label: 'DADOS DE BAJA' },
+              { id: 'TODOS', label: 'TODOS' },
+            ].map((tab) => {
+              const isSelected = filterEstado === tab.id;
+              const isBaja = tab.id === 'DADOS DE BAJA';
               return (
                 <button
-                  key={est}
-                  onClick={() => setFilterEstado(est)}
+                  key={tab.id}
+                  onClick={() => setFilterEstado(tab.id)}
                   className={`px-3 py-1 text-[10px] tracking-wider font-bold transition-all ${
                     isSelected
-                      ? 'bg-[#E8B84A] text-[#1A1206]'
+                      ? isBaja
+                        ? 'bg-red-900/90 text-red-200 border border-red-500/50'
+                        : 'bg-[#E8B84A] text-[#1A1206]'
+                      : isBaja
+                      ? 'text-red-400/80 hover:text-red-300'
                       : 'text-[#82828A] hover:text-[#F5EFE0]'
                   }`}
                 >
-                  {est}
+                  {tab.label}
                 </button>
               );
             })}
@@ -348,7 +369,7 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
         </div>
 
         <div className="text-[#82828A] text-right">
-          MOSTRANDO <strong className="text-[#F5EFE0]">{clientes.length}</strong> SOCIOS
+          MOSTRANDO <strong className="text-[#F5EFE0]">{displayClientes.length}</strong> SOCIOS
         </div>
       </div>
 
@@ -374,14 +395,16 @@ export default function Clientes({ onSelectCliente, onOpenNuevoPago, searchQuery
                     Cargando listado de socios desde MySQL...
                   </td>
                 </tr>
-              ) : clientes.length === 0 ? (
+              ) : displayClientes.length === 0 ? (
                 <tr>
                   <td colSpan="6" className="py-12 text-center text-[#82828A]">
-                    No se encontraron socios con los filtros seleccionados.
+                    {filterEstado === 'DADOS DE BAJA'
+                      ? 'No hay socios dados de baja en este registro.'
+                      : 'No se encontraron socios con los filtros seleccionados.'}
                   </td>
                 </tr>
               ) : (
-                clientes.map((c) => {
+                displayClientes.map((c) => {
                   const initials = `${c.nombre?.[0] || 'S'}${c.apellido?.[0] || 'C'}`.toUpperCase();
                   const esCritico = c.diasRestantes !== null && c.diasRestantes <= 2;
                   const esAlerta = c.diasRestantes !== null && c.diasRestantes <= 5;
