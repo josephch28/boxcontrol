@@ -7,6 +7,7 @@ import {
   validarEmail,
   handleKeyDownSoloNumeros,
 } from '../utils/validators';
+import { AlertModal } from '../components/ModalAlert';
 
 export default function Sucursales({ onSucursalesChange, onSucursalUpdated }) {
   const notifyChange = () => {
@@ -18,6 +19,7 @@ export default function Sucursales({ onSucursalesChange, onSucursalUpdated }) {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editingSucursal, setEditingSucursal] = useState(null);
+  const [alertModal, setAlertModal] = useState({ isOpen: false, title: '', subtitle: '', message: '', type: 'error' });
 
   const [formData, setFormData] = useState({
     nombre: '',
@@ -169,7 +171,13 @@ export default function Sucursales({ onSucursalesChange, onSucursalUpdated }) {
       notifyChange();
       setTimeout(() => setFeedbackMsg(''), 3000);
     } catch (err) {
-      alert('Error al modificar estado: ' + (err.response?.data?.message || err.message));
+      setAlertModal({
+        isOpen: true,
+        title: 'ERROR AL MODIFICAR ESTADO',
+        subtitle: 'CONFIGURACIÓN DE SEDES · RF-W10',
+        message: err.response?.data?.message || err.message || 'Error al modificar estado de la sucursal.',
+        type: 'error',
+      });
     }
   };
 
@@ -600,6 +608,16 @@ export default function Sucursales({ onSucursalesChange, onSucursalUpdated }) {
           </div>
         </div>
       )}
+
+      {/* Modal de Alerta para errores */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+        title={alertModal.title}
+        subtitle={alertModal.subtitle}
+        message={alertModal.message}
+        type={alertModal.type}
+      />
     </div>
   );
 }

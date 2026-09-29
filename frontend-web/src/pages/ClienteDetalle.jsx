@@ -14,6 +14,7 @@ import {
   handleKeyDownSoloNumeros,
   handleKeyDownSoloLetras,
 } from '../utils/validators';
+import { ConfirmModal, AlertModal } from '../components/ModalAlert';
 
 export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursalesList = [] }) {
   const [cliente, setCliente] = useState(null);
@@ -53,6 +54,8 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
   const [tiposMembresia, setTiposMembresia] = useState([]);
   const [sucursales, setSucursales] = useState(sucursalesList);
   const [deleteLoading, setDeleteLoading] = useState(false);
+  const [showConfirmDeleteModal, setShowConfirmDeleteModal] = useState(false);
+  const [alertModal, setAlertModal] = useState({ isOpen: false, title: '', subtitle: '', message: '', type: 'error' });
 
   const validateField = (name, value) => {
     let res = { isValid: true, error: '' };
@@ -292,15 +295,13 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
     }
   };
 
-  const handleToggleDeleteSocio = async () => {
+  const handleToggleDeleteSocio = () => {
     if (!cliente) return;
-    const esInactivo = cliente.usuario?.estado === 'INACTIVO';
-    const confirmMsg = esInactivo
-      ? `¿Deseas REACTIVAR la cuenta del socio ${cliente.nombreCompleto}? Podrá ingresar nuevamente y registrar pagos.`
-      : `¿Estás seguro de que deseas DAR DE BAJA / ELIMINAR al socio ${cliente.nombreCompleto}?\n\nSu cuenta pasará a estado INACTIVO y se bloqueará su acceso en torniquete y caja. (El historial contable se preservará por auditoría).`;
+    setShowConfirmDeleteModal(true);
+  };
 
-    if (!window.confirm(confirmMsg)) return;
-
+  const executeToggleDeleteSocio = async () => {
+    setShowConfirmDeleteModal(false);
     setDeleteLoading(true);
     try {
       const res = await api.delete(`/clientes/${clienteId}`);
@@ -310,7 +311,13 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
         setTimeout(() => setFeedbackMsg(''), 4000);
       }
     } catch (err) {
-      alert(err.response?.data?.message || 'Error al modificar estado del socio.');
+      setAlertModal({
+        isOpen: true,
+        title: 'ERROR EN OPERACIÓN',
+        subtitle: 'ADMINISTRACIÓN DE SOCIOS · RF-W02',
+        message: err.response?.data?.message || 'Error al modificar estado del socio.',
+        type: 'error',
+      });
     } finally {
       setDeleteLoading(false);
     }
@@ -1207,6 +1214,33 @@ export default function ClienteDetalle({ clienteId, onBack, onOpenPago, sucursal
           </div>
         </div>
       )}
+
+      {/* Modal de confirmación para dar de baja o reactivar socio (RF-W02) */}
+      <ConfirmModal
+        isOpen={showConfirmDeleteModal}
+        onClose={() => setShowConfirmDeleteModal(false)}
+        onConfirm={executeToggleDeleteSocio}
+        title={cliente?.usuario?.estado === 'INACTIVO' ? 'REACTIVAR SOCIO' : 'DAR DE BAJA SOCIO'}
+        subtitle="ADMINISTRACIÓN DE SOCIOS · RF-W02"
+        variant={cliente?.usuario?.estado === 'INACTIVO' ? 'success' : 'danger'}
+        confirmText={cliente?.usuario?.estado === 'INACTIVO' ? 'REACTIVAR SOCIO' : 'CONFIRMAR BAJA'}
+        loading={deleteLoading}
+        message={
+          cliente?.usuario?.estado === 'INACTIVO'
+            ? `¿Deseas REACTIVAR la cuenta del socio ${cliente?.nombreCompleto}?\n\nEl socio podrá ingresar nuevamente al club y registrar pagos y asistencias con normalidad.`
+            : `¿Estás seguro de que deseas DAR DE BAJA al socio ${cliente?.nombreCompleto}?\n\nSu cuenta pasará a estado INACTIVO y se bloqueará inmediatamente su acceso en torniquete y caja.\n\n(El historial contable y médico se preservará intacto para efectos de auditoría).`
+        }
+      />
+
+      {/* Modal de Notificación / Alerta para errores */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+        title={alertModal.title}
+        subtitle={alertModal.subtitle}
+        message={alertModal.message}
+        type={alertModal.type}
+      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import api from '../api/axios';
 import { Sparkles, Check, X, RefreshCw, Edit3, Smartphone, Bot, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { AlertModal } from '../components/ModalAlert';
 
 export default function ContenidoIA() {
   const [contenidos, setContenidos] = useState([]);
@@ -8,6 +9,11 @@ export default function ContenidoIA() {
   const [filterEstado, setFilterEstado] = useState('BORRADOR'); // 'BORRADOR' | 'PUBLICADO' | 'RECHAZADO'
   const [contadores, setContadores] = useState({ pendientes: 3, publicados: 24, rechazados: 1 });
   const [selectedContenido, setSelectedContenido] = useState(null);
+  const [alertModal, setAlertModal] = useState({ isOpen: false, title: '', subtitle: '', message: '', type: 'warning' });
+
+  const showAlert = (title, message, type = 'warning', subtitle = 'CONTENIDO IA · RF-W12') => {
+    setAlertModal({ isOpen: true, title, subtitle, message, type });
+  };
 
   // Parámetros del Generador IA (Matching Mockup 09)
   const [tipo, setTipo] = useState('RUTINA'); // 'RUTINA' | 'ALIMENTACION'
@@ -66,11 +72,11 @@ export default function ContenidoIA() {
   const handleGenerar = async (e) => {
     if (e) e.preventDefault();
     if (focosSeleccionados.length === 0) {
-      alert('Debes seleccionar al menos un foco de entrenamiento o nutrición.');
+      showAlert('SELECCIÓN REQUERIDA', 'Debes seleccionar al menos un foco de entrenamiento o nutrición.');
       return;
     }
     if (!instrucciones.trim() || instrucciones.trim().length < 10) {
-      alert('Por favor redacta al menos 10 caracteres con las especificaciones para la IA.');
+      showAlert('DETALLE INSUFICIENTE', 'Por favor redacta al menos 10 caracteres con las especificaciones para la IA.');
       return;
     }
 
@@ -93,7 +99,7 @@ export default function ContenidoIA() {
         setTimeout(() => setToastMsg(''), 4000);
       }
     } catch (err) {
-      alert(err.response?.data?.message || 'Error al generar contenido con IA.');
+      showAlert('ERROR EN GENERACIÓN IA', err.response?.data?.message || 'Error al generar contenido con IA.', 'error');
     } finally {
       setGenerating(false);
     }
@@ -115,7 +121,7 @@ export default function ContenidoIA() {
         setTimeout(() => setToastMsg(''), 4000);
       }
     } catch (err) {
-      alert(err.response?.data?.message || 'Error al actualizar estado.');
+      showAlert('ERROR AL ACTUALIZAR', err.response?.data?.message || 'Error al actualizar estado del contenido.', 'error');
     }
   };
 
@@ -145,7 +151,7 @@ export default function ContenidoIA() {
       fetchContenidos();
       setTimeout(() => setToastMsg(''), 3000);
     } catch (err) {
-      alert('Error al guardar cambios.');
+      showAlert('ERROR AL GUARDAR', 'Error al guardar cambios en el contenido.', 'error');
     }
   };
 
@@ -652,6 +658,16 @@ export default function ContenidoIA() {
           </div>
         </div>
       )}
+
+      {/* Modal de Alerta estilizado para validaciones y respuestas del sistema */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+        title={alertModal.title}
+        subtitle={alertModal.subtitle}
+        message={alertModal.message}
+        type={alertModal.type}
+      />
     </div>
   );
 }

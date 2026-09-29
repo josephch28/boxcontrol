@@ -9,6 +9,7 @@ import {
   handleKeyDownSoloNumeros,
   handleKeyDownDecimal,
 } from '../utils/validators';
+import { AlertModal } from '../components/ModalAlert';
 
 export default function TiposMembresia() {
   const { user } = useAuth();
@@ -16,6 +17,7 @@ export default function TiposMembresia() {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editingTipo, setEditingTipo] = useState(null);
+  const [alertModal, setAlertModal] = useState({ isOpen: false, title: '', subtitle: '', message: '', type: 'error' });
   const [formData, setFormData] = useState({
     nombre: '',
     descripcion: '',
@@ -172,7 +174,13 @@ export default function TiposMembresia() {
       fetchTipos();
       setTimeout(() => setToastMsg(''), 3000);
     } catch (err) {
-      alert(err.response?.data?.message || 'Error');
+      setAlertModal({
+        isOpen: true,
+        title: 'ERROR AL MODIFICAR ESTADO',
+        subtitle: 'PLANES DE MEMBRESÍA · RF-W03',
+        message: err.response?.data?.message || 'No se pudo actualizar el estado del plan de membresía.',
+        type: 'error',
+      });
     }
   };
 
@@ -473,6 +481,16 @@ export default function TiposMembresia() {
           </div>
         </div>
       )}
+
+      {/* Modal de Alerta para errores */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+        title={alertModal.title}
+        subtitle={alertModal.subtitle}
+        message={alertModal.message}
+        type={alertModal.type}
+      />
     </div>
   );
 }

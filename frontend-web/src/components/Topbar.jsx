@@ -25,23 +25,6 @@ export default function Topbar({
     year: 'numeric'
   }).toUpperCase();
 
-  const branchOptions = [
-    { id: 'TODAS', label: 'TODAS' },
-    ...(sucursales && sucursales.length > 0
-      ? sucursales.map((s) => ({
-          id: String(s.id),
-          label: s.nombre
-            .toUpperCase()
-            .replace('SUCURSAL ', '')
-            .replace('SEDE ', '')
-            .trim(),
-        }))
-      : [
-          { id: '1', label: 'NORTE' },
-          { id: '2', label: 'SUR' },
-        ]),
-  ];
-
   return (
     <header className="px-8 py-4 border-b border-[#33333C] flex flex-col md:flex-row md:items-center justify-between gap-4 bg-[#0B0B0D] sticky top-0 z-40">
       <div>
@@ -66,28 +49,45 @@ export default function Topbar({
           <Search size={14} className="absolute left-3 top-2.5 text-[#A5A5AF]" />
         </div>
 
-        {/* Branch Filter: Admin can switch, Receptionist has fixed branch badge */}
+        {/* Branch Filter Combobox: Admin can switch between dynamic branches, Receptionist has fixed badge */}
         {isAdmin ? (
-          <div className="flex bg-[#141418] border border-[#33333C] p-1">
-            {branchOptions.map((b) => {
-              const isSelected =
-                activeBranch === b.id ||
-                (activeBranch === 'NORTE' && b.id === '1') ||
-                (activeBranch === 'SUR' && b.id === '2');
-              return (
-                <button
-                  key={b.id}
-                  onClick={() => setActiveBranch(b.id)}
-                  className={`px-3 py-1 font-mono text-[10px] tracking-wider font-bold transition-all ${
-                    isSelected
-                      ? 'bg-[#E8B84A] text-[#1A1206]'
-                      : 'text-[#A5A5AF] hover:text-[#F5EFE0]'
-                  }`}
-                >
-                  {b.label}
-                </button>
-              );
-            })}
+          <div className="relative flex items-center bg-[#141418] border border-[#33333C] hover:border-[#E8B84A] px-2.5 py-1.5 gap-2 transition-colors">
+            <MapPin size={13} className="text-[#E8B84A] shrink-0" />
+            <span className="text-[10px] font-mono text-[#82828A] tracking-wider uppercase font-bold shrink-0">
+              SEDE:
+            </span>
+            <select
+              value={activeBranch}
+              onChange={(e) => setActiveBranch(e.target.value)}
+              className="bg-transparent font-mono text-xs text-[#F5EFE0] font-bold focus:outline-none cursor-pointer tracking-wider pr-1"
+              title="Filtrar datos por sede o consolidado general"
+            >
+              <option value="TODAS" className="bg-[#141418] text-[#F5EFE0]">
+                TODAS LAS SEDES (CONSOLIDADO)
+              </option>
+              {sucursales && sucursales.length > 0 ? (
+                sucursales
+                  .filter((s) => s.estado !== 'INACTIVA')
+                  .map((s) => (
+                    <option
+                      key={s.id}
+                      value={String(s.id)}
+                      className="bg-[#141418] text-[#F5EFE0]"
+                    >
+                      {s.nombre.toUpperCase()}
+                    </option>
+                  ))
+              ) : (
+                <>
+                  <option value="1" className="bg-[#141418] text-[#F5EFE0]">
+                    SUCURSAL NORTE
+                  </option>
+                  <option value="2" className="bg-[#141418] text-[#F5EFE0]">
+                    SUCURSAL SUR
+                  </option>
+                </>
+              )}
+            </select>
           </div>
         ) : (
           <div className="flex items-center gap-2 px-3 py-1.5 bg-[#141418] border border-[#33333C] font-mono text-xs">

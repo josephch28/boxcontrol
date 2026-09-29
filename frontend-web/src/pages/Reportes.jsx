@@ -6,12 +6,14 @@ import autoTable from 'jspdf-autotable';
 import { Download, Calendar, RefreshCw, Filter, FileText, CheckCircle2, AlertCircle } from 'lucide-react';
 import { validarRangoFechas } from '../utils/validators';
 import ReporteIngresosChart from '../components/ReporteIngresosChart';
+import { AlertModal } from '../components/ModalAlert';
 
 export default function Reportes({ externalBranch, sucursalesList = [] }) {
   const { user } = useAuth();
   const isAdmin = user?.rol === 'ADMINISTRADOR';
   const [reporte, setReporte] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [alertModal, setAlertModal] = useState({ isOpen: false, title: '', subtitle: '', message: '', type: 'error' });
   const [sucursales, setSucursales] = useState(sucursalesList);
   const [sucursalFilter, setSucursalFilter] = useState(() => {
     if (!isAdmin && user?.sucursal?.id) return String(user.sucursal.id);
@@ -412,7 +414,13 @@ export default function Reportes({ externalBranch, sucursalesList = [] }) {
       setTimeout(() => setToastMsg(''), 5000);
     } catch (err) {
       console.error('Error generating PDF:', err);
-      alert('Error al generar archivo PDF: ' + err.message);
+      setAlertModal({
+        isOpen: true,
+        title: 'ERROR AL GENERAR PDF',
+        subtitle: 'REPORTES FINANCIEROS · AUDITORÍA',
+        message: 'No se pudo generar el documento PDF: ' + err.message,
+        type: 'error',
+      });
     } finally {
       setPdfGenerating(false);
     }
@@ -768,6 +776,16 @@ export default function Reportes({ externalBranch, sucursalesList = [] }) {
           </div>
         </div>
       </div>
+
+      {/* Modal de Alerta para errores de exportación o validación */}
+      <AlertModal
+        isOpen={alertModal.isOpen}
+        onClose={() => setAlertModal({ ...alertModal, isOpen: false })}
+        title={alertModal.title}
+        subtitle={alertModal.subtitle}
+        message={alertModal.message}
+        type={alertModal.type}
+      />
     </div>
   );
 }
